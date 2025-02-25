@@ -35,8 +35,8 @@ menu:
 local_search:
   enable: true
   labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}" # 如果没有查到内容相关内容显示
+    input_placeholder: "搜索文章"  # 修改这里为中文提示
+    hits_empty: "未找到与 '${query}' 相关的内容"  # 修改这里为空时显示的提示
 
 
 
@@ -60,9 +60,9 @@ code_blocks:
   fullpage: false
 
 #代码块显示设置
-highlight_theme: mac  #  darker / pale night / light / ocean / mac / mac light / false 代码主题
+highlight_theme: mac light  #  darker / pale night / light / ocean / mac / mac light / false 代码主题
 highlight_copy: true # 复制按钮
-highlight_lang: false # 是否显示代码语言
+highlight_lang: true # 是否显示代码语言
 highlight_shrink: false # true: 代码块默认不展开 / false: 代码块默认展开 | none: 展开并隐藏折叠按钮
 highlight_height_limit: false # unit: px
 code_word_wrap: true #代码自动换行，关闭滚动条
@@ -204,7 +204,7 @@ index_layout: 3
 # 2: both (if the description exists, it will show description, or show the auto_excerpt)
 # 3: auto_excerpt (default)
 # false: do not show the article introduction
-index_post_content:
+_post_content:
   method: 3
   # If you set method to 2 or 3, the length need to config
   length: 500
@@ -212,8 +212,9 @@ index_post_content:
 # --------------------------------------
 # Post Settings
 # --------------------------------------
-
+#目录
 toc:
+  enable: true
   post: true
   page: false
   number: false
@@ -280,7 +281,7 @@ noticeOutdate:
 footer:
   owner:
     enable: true
-    since: 2019
+    since: 2025
   custom_text:
   # Copyright of theme and framework
   copyright: true
@@ -307,11 +308,11 @@ aside:
     button:
       enable: true
       icon: fab fa-github
-      text: Follow Me
+      text: 关注我
       link: https://github.com/ouyiz
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: 祝你有更好的生活
   card_recent_post:
     enable: true
     # If set 0 will show all

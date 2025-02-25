@@ -108,7 +108,7 @@ deploy:
 
 
 
-# search
+# 搜索
 search:
   path: search.xml
   field: all # post:文章范围、page:页面范围、all:覆盖所有
