@@ -1,10 +1,67 @@
-- class_name: 友情鏈接
-  class_desc: 那些人，那些事
+- class_name: 常用链接
+  class_desc: 我常用的链接
   link_list:
-    - name: Hexo
-      link: https://hexo.io/zh-tw/
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 快速、簡單且強大的網誌框架
+    - name: 必应
+      link: https://www.bing.com
+      avatar: https://files.codelife.cc/icons/bing.com.svg
+
+    - name: CSDN
+      link: https://www.csdn.net/
+      avatar: ../../img/csdn.svg
+      
+    - name: 火山翻译
+      link: https://translate.volcengine.com/mobile
+      avatar: https://files.codelife.cc/icons/translate.volcengine.com.svg
+      
+    - name: QQ邮箱
+      link: https://wx.mail.qq.com/
+      avatar: https://files.codelife.cc/icons/qq-mail.svg
+    
+    - name: bilibili
+      link: https://www.bilibili.com/
+      avatar: ../../img/哔哩哔哩.svg
+
+    - name: notion
+      link: https://www.notion.so/
+      avatar: https://files.codelife.cc/icons/notion.svg  
+    
+    - name: 知乎
+      link: https://www.zhihu.com/
+      avatar: ../../img/知乎.svg
+
+    - name: 学习通
+      link: https://passport2.chaoxing.com/
+      avatar: ../../img/门户常用应用系统ICON（圆的）_超星教学平台 (1).svg  
+
+    - name: 幕布
+      link: https://mubu.com/
+      avatar: https://files.codelife.cc/icons/mubu.comlist.svg  
+
+    - name: 小红书
+      link: https://www.xiaohongshu.com/
+      avatar: ../../img/小红书.svg
+
+    - name: 维基百科
+      link: https://zh.wikipedia.org/
+      avatar: https://files.codelife.cc/icons/wikipedia.svg  
+
+    - name: youtube
+      link: https://www.youtube.com/
+      avatar:   ../../img/youtube.svg
+
+    - name: 力扣
+      link: https://leetcode.cn/
+      avatar: https://files.codelife.cc/icons/0153053396b8f415.png?x-oss-process=image/resize,limit_0,m_fill,w_100,h_100/quality,q_92/format,webp
+
+    - name: 墨刀
+      link: https://modao.cc/
+      avatar: https://files.codelife.cc/icons/modao.svg  
+
+    - name: 科研废物导航
+      link: https://yanweb.top/
+      avatar: https://yanweb.top/assets/img/logo.png  
+
+    
 
 - class_name: 網站
   class_desc: 值得推薦的網站

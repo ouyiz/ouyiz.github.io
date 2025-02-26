@@ -23,8 +23,9 @@ menu:
   归档: /archives/ || fa fa-folder-open
   # 生活 || fas fa-list:
   #   图库: /gallery/ || fas fa-image   # 新增图库菜单
-  #   书籍: /books/ || fas fa-book     # 新增书籍菜单
+  #书籍: /books/ || fas fa-book     # 新增书籍菜单
   #   播客: /podcasts/ || fas fa-podcast
+  
   链接: /links/ || fa fa-link
   留言板: /comment/ || fa fa-paper-plane
   
