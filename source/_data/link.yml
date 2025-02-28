@@ -31,7 +31,7 @@
 
     - name: 学习通
       link: https://passport2.chaoxing.com/
-      avatar: ../../img/门户常用应用系统ICON（圆的）_超星教学平台 (1).svg  
+      avatar: ../../img/超星.svg  
 
     - name: 幕布
       link: https://mubu.com/
@@ -61,20 +61,99 @@
       link: https://yanweb.top/
       avatar: https://yanweb.top/assets/img/logo.png  
 
+    - name: 学信网
+      link: https://www.chsi.com.cn/
+      avatar: https://files.codelife.cc/icons/60b9eb22ae5a9ba4024b3a5a.png
+
+    - name: 阿里巴巴矢量图片库
+      link: https://www.iconfont.cn/
+      avatar: https://files.codelife.cc/icons/iconfont.svg
+    
+    - name: 微信公众平台
+      link: https://mp.weixin.qq.com/
+      avatar: https://files.codelife.cc/icons/mp-weixin-qq.svg  
+    
+    - name: 功能网站合辑
+      link: https://favorites.pages.dev/
+      avatar: https://favorites.pages.dev/favicon.ico
+
+    - name: 通义效率
+      link: https://tongyi.aliyun.com/
+      avatar: https://files.codelife.cc/icons/tongyi.aliyun.png
+      descr: 常用于播客文字稿提取
+
+- class_name: 视频网站
+  class_desc: 看视频的网站
+  link_list:
+    - name: Libvio
+      link: https://libvio.cc/
+      avatar: https://libvio.cc/statics/img/favicon.ico
+      descr: 更适合外国剧
+
+    - name: 欧乐影视
+      link: https://olevod.com/
+      avatar: https://files.codelife.cc/icons/920a7210cb93934a.png
+      descr: 看电影，电视剧网站
+
+    - name: 爱壹帆
+      link: https://iyf.tv/
+      avatar: ../../img/iyf.png
+      descr: 清晰度差
+
+    - name: 独播库
+      link: https://dbkk.cc/
+      avatar: https://dbkk.cc/static/favicon.ico
+      descr: 看电影，电视剧网站
+
+    - name: 唐人街影视
+      link: https://gpainter.com/
+      avatar: https://gpainter.com/upload/site/20241223-1/213e487fac7827e86236c82977807e36.png
+      descr: 看电影，电视剧网站
+
+- class_name: 实用工具
+  class_desc: 使生活更便利的工具
+  link_list:
+    - name: zlibrary
+      link: https://zh.z-lib.gs
+      avatar: ../../img/logo.zlibrary.svg
+      descr: 下载书籍
+
+    - name: b站视频下载
+      link: https://www.jijidown.com/
+      avatar: https://files.codelife.cc/website/5ac9e206c251950593a1020c.png
+      descr: 下载b站视频，但背景恶俗
+
+    - name: youtube视频下载
+      link: https://cobalt.tools/
+      avatar: https://cobalt.tools/favicon.png
+      descr: 简洁美观
+
+    - name: 文字转AI语言
+      link: https://www.modelscope.cn/studios/xzjosh/Bert-VITS2/
+      avatar: https://g.alicdn.com/sail-web/maas/2.6.1/favicon/128.ico
+      descr: 免费
+
+    - name: pdf转word
+      link: https://www.alltoall.net/
+      avatar: https://files.codelife.cc/icons/www.alltoall.net.svg
+      descr: 免费
+
+    - name: AI工具合辑
+      link: https://aibard123.com/
+      avatar: https://aibard123.com/assets/images/favicon.png
+      descr: AI工具合辑
+    
+    - name: 免费可商用字体
+      link: https://ziyouziti.com/index-index-all.html
+      avatar: https://files.codelife.cc/icons/7699ca55b0d3df5e.png
+      descr: 免费可商用字体
+    
+    - name: 在线配色
+      link: https://color.adobe.com/zh/create/color-wheel
+      avatar: https://files.codelife.cc/icons/60b9ef47ae5a9ba4024b47b8.png
+      descr: 官方配色工具
+
     
 
-- class_name: 網站
-  class_desc: 值得推薦的網站
-  link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 視頻網站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中國最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    
+    

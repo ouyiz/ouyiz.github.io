@@ -1,125 +1,18 @@
 ---
 title: 书籍
 date: 2023-10-01
-
 ---
-
-<style>
-  #booklist {
-    padding: 20px;
-  }
-
-  .book-card {
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid #a5a5a5ee;
-    border-radius: 10px;
-    padding: 15px;
-    margin: 10px;
-    width: calc(48% - 7px);
-    transition: all 0.25s ease;
-    user-select: none;
-  }
-
-  @media screen and (max-width: 800px) {
-    .book-card {
-      width: 100%;
-    }
-  }
-
-  .book-card:hover {
-    box-shadow: 0 5px 10px 8px #07111b29;
-    transform: translateY(-3px);
-  }
-
-  .book-card .cover {
-    width: 100%;
-    height: 200px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .book-card .cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .book-card .info {
-    padding-top: 15px;
-  }
-
-  .book-card .info h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  .book-card .info p {
-    font-size: 14px;
-    color: #676767;
-    margin-bottom: 10px;
-  }
-
-  .book-card .info .author {
-    font-size: 13px;
-    color: #333;
-    font-weight: 500;
-  }
-
-  .book-card .info .tag {
-    margin-top: 10px;
-    padding: 4px 8px;
-    font-size: 12px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    color: #666;
-  }
-
-  #booklist .bb-info {
-    font-weight: 700;
-    font-size: 22px;
-  }
-
-  #booklist .card-header {
-    display: flex;
-    align-items: center;
-  }
-
-  #booklist .card-header .avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    margin-right: 10px;
-    overflow: hidden;
-  }
-
-  #booklist .card-header svg {
-    height: 20px;
-    width: 20px;
-    margin-left: 5px;
-  }
-
-  .loading img {
-    border-radius: 15px;
-  }
-</style>
-
-<div id="booklist">
-  <div class="bb-info">我的书单</div>
-  <div id="bb-main">
-    // 循环显示书籍卡片
-    each book, index in books
-      .book-card
-        .cover
-          img(src=book.cover, alt=book.title)
-        .info
-          h3= book.title
-          p= book.description
-          .author 作者: #{book.author}
-          .tag #{book.tag}
-  </div>
+# 2025阅读书籍
+<div class="gallery-group-main">
+{% galleryGroup '一生之敌' '史蒂文·普莱斯菲尔德' '/books/一生之敌' https://cdn.weread.qq.com/weread/cover/24/cpplatform_gres5pbjpfjjyokardywds/t6_cpplatform_gres5pbjpfjjyokardywds1731407053.jpg %}
+{% galleryGroup '手机大脑' '安德斯·汉森' '/books/手机大脑' https://cdn.weread.qq.com/weread/cover/52/cpPlatform_4Mb2DKkCB8DL4NhctbsKb6/t6_cpPlatform_4Mb2DKkCB8DL4NhctbsKb6.jpg %}
+{% galleryGroup '控糖革命' '杰西·安佐斯佩' '/books/控糖革命' https://cdn.weread.qq.com/weread/cover/64/cpplatform_qpqefbrrjjgqq7t62wt1ca/t6_cpplatform_qpqefbrrjjgqq7t62wt1ca1706772686.jpg %}
+{% galleryGroup '你是你吃出来的' '夏萌' '/books/你是你吃出来的' https://cdn.weread.qq.com/weread/cover/86/YueWen_920661/t6_YueWen_920661.jpg %}
+{% galleryGroup '我们为什么要睡觉' '马修·沃克' '/books/我们为什么要睡觉' https://cdn.weread.qq.com/weread/cover/98/YueWen_43697528/t6_YueWen_43697528.jpg %}
+{% galleryGroup '贪婪的多巴胺' '[美]丹尼尔·利伯曼[美]迈克尔·E.朗' '/books/贪婪的多巴胺' https://wfqqreader-1252317822.image.myqcloud.com/cover/9/41626009/t6_41626009.jpg %}
+{% galleryGroup '见树又见林' 'Allan Johnso' '/books/见树又见林' https://cdn.weread.qq.com/outpic/509/3000085509.jpg %}
+{% galleryGroup '阅读浪漫小说' '珍妮斯·A.拉德威' '/books/阅读浪漫小说' https://wfqqreader-1252317822.image.myqcloud.com/cover/55/35425055/t6_35425055.jpg %}
+{% galleryGroup '大脑喜欢听你这样说' '杰瑞德·库尼·霍瓦斯' '/books/大脑喜欢听你这样说' https://cdn.weread.qq.com/weread/cover/37/cpplatform_tobcl6czhsgmbz2fs5yfab/t6_cpplatform_tobcl6czhsgmbz2fs5yfab1676874509.jpg %}
+{% galleryGroup '毫无意义的工作' '大卫·格雷伯' '/books/毫无意义的工作' https://cdn.weread.qq.com/weread/cover/61/cpPlatform_41LTnhXnaf2pYWQrSdFUwN/t6_cpPlatform_41LTnhXnaf2pYWQrSdFUwN.jpg %}
 </div>
 
-<script src="/js/booklist.js"></script>
