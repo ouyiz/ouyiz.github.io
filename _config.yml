@@ -103,8 +103,9 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/ouyiz/ouyiz.github.io.git
-  branch: master
+  repo: git@github.com:ouyiz/ouyiz.github.io.git
+  branch: gh-pages
+
 
 
 
