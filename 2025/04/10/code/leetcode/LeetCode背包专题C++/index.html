@@ -1,0 +1,597 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>森林 | 森林</title><meta name="author" content="Ouyiz"><meta name="copyright" content="Ouyiz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="注意以下内容理论部分有参考《代码随想录》，推荐看了代码随想录得背包问题相关内容后再刷代码。代码随想录   0-1背包问题理论基础问题描述一个正在抢劫商店的小偷发现了$n$个商品，第$i(范围为[0,n-1])$个商品价值value[i]美元，重weight[i]磅，value[i]和weight[i]都是整数。这个小偷希望拿走价值尽量高的商品，但他的背包最多能容纳$W$磅重的商品，$W$是一个整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="森林">
+<meta property="og:url" content="https://ouyiz.github.io/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/index.html">
+<meta property="og:site_name" content="森林">
+<meta property="og:description" content="注意以下内容理论部分有参考《代码随想录》，推荐看了代码随想录得背包问题相关内容后再刷代码。代码随想录   0-1背包问题理论基础问题描述一个正在抢劫商店的小偷发现了$n$个商品，第$i(范围为[0,n-1])$个商品价值value[i]美元，重weight[i]磅，value[i]和weight[i]都是整数。这个小偷希望拿走价值尽量高的商品，但他的背包最多能容纳$W$磅重的商品，$W$是一个整">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ouyiz.github.io/img/avatar.jpg">
+<meta property="article:published_time" content="2025-04-10T09:24:50.926Z">
+<meta property="article:modified_time" content="2025-04-17T10:07:28.549Z">
+<meta property="article:author" content="Ouyiz">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ouyiz.github.io/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "",
+  "url": "https://ouyiz.github.io/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/",
+  "image": "https://ouyiz.github.io/img/avatar.jpg",
+  "datePublished": "2025-04-10T09:24:50.926Z",
+  "dateModified": "2025-04-17T10:07:28.549Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Ouyiz",
+      "url": "https://ouyiz.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/ico.png"><link rel="canonical" href="https://ouyiz.github.io/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":3,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '森林',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></div><div class="menus_item"><a class="site-page" href="/podcasts/"><i class="fa-fw fas fa-podcast"></i><span> 播客</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 作者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">森林</span></a><a class="nav-page-title" href="/"><span class="site-name">森林</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></div><div class="menus_item"><a class="site-page" href="/podcasts/"><i class="fa-fw fas fa-podcast"></i><span> 播客</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 作者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">无标题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-10T09:24:50.926Z" title="发表于 2025-04-10 17:24:50">2025-04-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-17T10:07:28.549Z" title="更新于 2025-04-17 18:07:28">2025-04-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p>注意<br>以下内容理论部分有参考《代码随想录》，推荐看了代码随想录得背包问题相关内容后再刷代码。<br><a target="_blank" rel="noopener" href="https://www.programmercarl.com/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.html">代码随想录</a></p>
+</blockquote>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/file-20250410173038988.png"></p>
+<h1 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h1><h2 id="理论基础"><a href="#理论基础" class="headerlink" title="理论基础"></a>理论基础</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>一个正在抢劫商店的小偷发现了$n$个商品，第$i(范围为[0,n-1])$个商品价值<code>value[i]</code>美元，重<code>weight[i]</code>磅，<code>value[i]</code>和<code>weight[i]</code>都是整数。这个小偷希望拿走价值尽量高的商品，但他的背包最多能容纳$W$磅重的商品，$W$是一个整数。他应该拿哪些商品呢？<br>（我们称这个问题是0-1背包问题，因为对每个商品，小偷要么把它完整拿走，要么把它留下；他不能只拿走一个商品的一部分，或者把一个商品拿走多次。）</p>
+<h3 id="求解思路"><a href="#求解思路" class="headerlink" title="求解思路"></a>求解思路</h3><h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><p><strong>1.确定dp数组以及下标的含义</strong><br><code>dp[i][j]</code> 表示从下标为<code>[0-i]</code>的物品里任意取，放进容量为<code>j</code>的背包，价值总和最大是多少。</p>
+<p><strong>2.确定递推公式</strong><br>对于物体<code>i</code>只有两种情况</p>
+<ul>
+<li>不放物品<code>i</code>：背包容量为<code>j</code>，里面不放物品<code>i</code>的最大价值是<code>dp[i - 1][j]</code>。</li>
+<li>放物品<code>i</code>：背包空出物品<code>i</code>的容量后，背包容量为<code>j - weight[i]</code>，<code>dp[i - 1][j - weight[i]] </code>为背包容量为<code>j - weight[i]</code>且不放物品i的最大价值，那么<code>dp[i - 1][j - weight[i]] + value[i] </code>，就是背包放物品i得到的最大价值。<br>递归公式： <code>dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);</code></li>
+</ul>
+<p><strong>3.dp数组如何初始化</strong><br>对于<code>i</code>：<br>	由递推公式的<code>dp[i-1][j]</code>知，需要考虑<code>dp[0][j]</code>的情况。<br>	当 <code>j &lt; weight[0]</code>的时候，<code>dp[0][j] </code>应该是 0，因为背包容量比编号0的物品重量还小。<br>	当<code>j &gt;= weight[0]</code>时，<code>dp[0][j] </code>应该是<code>value[0]</code>，因为背包容量放足够放编号0物品。</p>
+<p>对于<code>j</code>：<br>	如果背包容量j为0的话，即<code>dp[i][0]</code>，无论是选取哪些物品，背包价值总和一定为0。</p>
+<p>故初始化代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123;  </span><br><span class="line">    dp[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = weight[<span class="number">0</span>]; j &lt;= bagweight; j++) &#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = value[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.确定遍历顺序</strong><br>两种情况：</p>
+<ul>
+<li>先<code>i</code>后<code>j</code>，先物品后背包重量</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// weight数组的大小 就是物品个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagweight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先<code>j</code>后<code>i</code>，先背包重量后物品</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// weight数组的大小 就是物品个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagweight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i - <span class="number">1</span>][j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h4><p><strong>1.确定dp数组以及下标的含义</strong><br><code>dp[j]</code>表示：容量为<code>j</code>的背包，所背的物品价值可以最大为<code>dp[j]</code>。</p>
+<p><strong>2.确定递推公式</strong><br>对于物体<code>i</code>只有两种情况</p>
+<ul>
+<li>不放物品<code>i</code>：背包容量为<code>j</code>，里面不放物品<code>i</code>的最大价值是<code>dp[j]</code>。</li>
+<li>放物品<code>i</code>：背包空出物品<code>i</code>的容量后，背包容量为<code>j - weight[i]</code>，<code>dp[j - weight[i]] </code>为背包容量为<code>j - weight[i]</code>且不放物品i的最大价值，那么<code>dp[j - weight[i]] + value[i] </code>，就是背包放物品i得到的最大价值。<br>递归公式： <code>dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</code></li>
+</ul>
+<p><strong>3.dp数组如何初始化</strong><br>对于<code>j</code>：<br>	如果背包容量j为0的话，即<code>dp[0]</code>，无论是选取哪些物品，背包价值总和一定为0。</p>
+<p>故初始化代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.确定遍历顺序</strong><br>两种情况：</p>
+<ul>
+<li>先<code>i</code>后<code>j</code>，先物品后背包重量<br>  这里第二层循环背包重量是从大到小，为了保证物品<code>i</code>只被放入一次。<br>  因为如果是从小到大，假设对于物体$i_0$，它可能在$j&#x3D;j_0$的时候满足条件，进入过一次背包，结果在$j&#x3D;j_1(j_1&gt;j_0)$的时候又满足条件，放进背包，这就不是01背包问题了。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = bagWeight; j &gt;= weight[i]; j--) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>先<code>j</code>后<code>i</code>，先背包重量后物品<br>  不可以！！！<br>  首先，要和上面一样，背包重量是从大到小。<br>  但是，这样的话，背包只能放一个物品。因为背包重量是从大到小，那<code> dp[j - weight[i]] + value[i]</code>其实用于是<code>0+value[i]</code>，也就是只能放一个物品。  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//不可以这样写！！！！</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = bagWeight; j &gt;= <span class="number">0</span>; j--) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="LeetCode题目"><a href="#LeetCode题目" class="headerlink" title="LeetCode题目"></a>LeetCode题目</h2><h3 id="Leetcode-416-分割等和子集"><a href="#Leetcode-416-分割等和子集" class="headerlink" title="Leetcode 416. 分割等和子集"></a>Leetcode 416. 分割等和子集</h3><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个 <strong>只包含正整数</strong> 的非空数组 <code>nums</code>，判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
+<ul>
+<li><strong>示例 1：</strong>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1, 5, 11, 5]</span><br><span class="line">输出：true</span><br><span class="line">解释：数组可以分成 [1, 5, 5] 和 [11]，两个子集和相等。</span><br></pre></td></tr></table></figure></li>
+<li><strong>示例 2：</strong>  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1, 2, 3, 5]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为01背包问题：</strong><br>这个问题可以变成一个 01 背包问题：从 <code>nums</code> 中选出一部分数字，使得它们的和恰好是 <code>sum / 2</code>。</p>
+<ul>
+<li>如果数组的总和是奇数，那就肯定不能划分。</li>
+<li>如果是偶数，就尝试用动态规划找出是否存在子集和为 <code>sum / 2</code>。<br>需要找到一些数，使数的和为sum&#x2F;2;</li>
+</ul>
+<p><strong>动态规划步骤：</strong><br>1.确定dp数组以及下标的含义<br><code>dp[j]</code>表示和是否可以组成<code>j</code><br>2.确定递推公式<br><code>if(dp[j-nums[i]]==true)dp[j]=true</code><br>3.dp数组如何初始化<br><code>dp[0]=true</code><br>4.确定遍历顺序</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> j=sum/<span class="number">2</span>;j&gt;=nums[i];j--)</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canPartition</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            sum = sum + nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sum % <span class="number">2</span> == <span class="number">1</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> n = sum / <span class="number">2</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = n; j &gt;= nums[i]; j--) &#123;</span><br><span class="line">                <span class="keyword">if</span> (dp[j - nums[i]] == <span class="literal">true</span>)dp[j] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Leetcode-1049-最后一块石头的重量-II"><a href="#Leetcode-1049-最后一块石头的重量-II" class="headerlink" title="Leetcode 1049. 最后一块石头的重量 II"></a>Leetcode 1049. 最后一块石头的重量 II</h3><h4 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h4><p>有一堆石头，用整数数组 <code>stones</code> 表示。其中 <code>stones[i]</code> 表示第 <code>i</code> 块石头的重量。</p>
+<p>每一回合，从中选出 <strong>任意两块</strong> 石头，然后将它们一起粉碎。假设石头的重量分别为 <code>x</code> 和 <code>y</code>，且 <code>x &lt;= y</code>。那么粉碎的可能结果如下：</p>
+<ul>
+<li>如果两块石头重量相同，那么它们都会被完全粉碎；</li>
+<li>如果两块石头重量不同，那么较重的石头会剩下重量为 <code>较重 − 较轻</code> 的新石头。</li>
+</ul>
+<p>最后，最多剩下一块石头，返回这块石头的最小可能重量。如果没有石头剩下，就返回 <code>0</code>。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：stones = [2,7,4,1,8,1]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">    可能的一种方案是：</span><br><span class="line">    - (2,4) -&gt; 2</span><br><span class="line">    - (1,1) -&gt; 0</span><br><span class="line">    - (2,7) -&gt; 5</span><br><span class="line">    - (5,8) -&gt; 3</span><br><span class="line">    - (3,0) -&gt; 3</span><br><span class="line">    最小的可能重量为 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= stones.length &lt;= 30</code></li>
+<li><code>1 &lt;= stones[i] &lt;= 100</code></li>
+</ul>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为01背包问题：</strong></p>
+<ul>
+<li>设总重量为 <code>sum</code>，这道题的目的其实时尽可能将石头平均分成两堆，一堆小于等于<code>n/2</code>，一堆大于等于<code>n/2</code>。</li>
+<li>所以本质就是一个 <strong>01 背包问题</strong>，目标是找到一组石头，它们的重量和 <code>s</code> 尽可能接近 <code>sum / 2</code>。</li>
+</ul>
+<p><strong>动态规划步骤：</strong><br>1.确定dp数组以及下标的含义<br><code>dp[j]</code>表示容量为 <code>j</code> 的背包最多能装多少重量的石头<br>2.确定递推公式<br><code>dp[j] = max(dp[j], dp[j - stone] + stone)</code><br>3.dp数组如何初始化<br><code>vector&lt;int&gt; dp(target + 1, 0);</code><br>4.确定遍历顺序</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">   <span class="keyword">for</span>(<span class="type">int</span> j=sum/<span class="number">2</span>;j&gt;=nums[i];j--)</span><br></pre></td></tr></table></figure>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lastStoneWeightII</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; stones)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; stones.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            sum = sum + stones[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> target = sum / <span class="number">2</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(target + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; stones.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = target; j &gt;= stones[i]; j--) &#123;</span><br><span class="line">                dp[j] = <span class="built_in">max</span>(dp[j], dp[j - stones[i]] + stones[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum - <span class="number">2</span> * dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="LeetCode494-目标和"><a href="#LeetCode494-目标和" class="headerlink" title="LeetCode494. 目标和"></a>LeetCode494. 目标和</h3><h4 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 <code>nums</code> 和一个整数 <code>target</code>。</p>
+<p>向数组中的每个整数前添加 <code>&#39;+&#39;</code> 或 <code>&#39;-&#39;</code> ，然后串联起所有整数，可以构造一个 <strong>表达式</strong> ：</p>
+<ul>
+<li>例如，<code>nums = [2, 1]</code> ，可以在 <code>2</code> 之前添加 <code>&#39;+&#39;</code> ，在 <code>1</code> 之前添加 <code>&#39;-&#39;</code> ，然后串联起来得到表达式 <code>&quot;+2-1&quot;</code> 。</li>
+</ul>
+<p>返回可以通过上述方法构造的、运算结果等于 <code>target</code> 的不同 <strong>表达式</strong> 的数目。</p>
+<p> <strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,1,1,1,1], target = 3  </span><br><span class="line">输出：5  </span><br><span class="line">解释：总共有 5 种方法让最终结果为 3：  </span><br><span class="line">-1 +1 +1 +1 +1 = 3  </span><br><span class="line">+1 -1 +1 +1 +1 = 3  </span><br><span class="line">+1 +1 -1 +1 +1 = 3  </span><br><span class="line">+1 +1 +1 -1 +1 = 3  </span><br><span class="line">+1 +1 +1 +1 -1 = 3</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1], target = 1  </span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为01背包问题：</strong><br>设数组中所有数的和为 <code>sum</code>，我们要在这些数前加 + 或 -，使得总和为 <code>target</code>。<br>设加正号的那些数之和为 <code>P</code>，加负号的和为 <code>N</code>，则有：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">P - N = target  </span><br><span class="line">P + N = sum</span><br></pre></td></tr></table></figure>
+<p>解这个方程组得：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2P = target + sum  </span><br><span class="line">=&gt; P = (target + sum) / 2</span><br></pre></td></tr></table></figure>
+<p>也就是说问题就变成了：<br><strong>从数组中选出若干个数，使得它们的和为 (target + sum) &#x2F; 2</strong>，求这样的选法有多少种。</p>
+<p><strong>动态规划步骤：</strong><br>1.确定dp数组以及下标的含义<br><code>dp[i]</code>表示使得和为i的选法种数<br>2.确定递推公式<br><code>dp[j] = dp[j] + dp[j - nums[0]];`` 3.dp数组如何初始化 </code>vector<int> dp(weight + 1, 0);<code> </code> dp[0] &#x3D; 1;&#96;<br>4.确定遍历顺序</int></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = weight; j &gt;= nums[<span class="number">0</span>]; j--) </span><br></pre></td></tr></table></figure>
+
+
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findTargetSumWays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)sum += nums[i];</span><br><span class="line">        <span class="keyword">if</span> ((target + sum) % <span class="number">2</span> == <span class="number">1</span>||<span class="built_in">abs</span>(target)&gt;sum)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> weight = (target + sum) / <span class="number">2</span>;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(weight + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = weight; j &gt;= nums[i]; j--) &#123;</span><br><span class="line">               dp[j] = dp[j] + dp[j - nums[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[weight];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="LeetCode-474-一和零"><a href="#LeetCode-474-一和零" class="headerlink" title="LeetCode 474. 一和零"></a>LeetCode 474. 一和零</h3><h4 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二进制字符串数组 <code>strs</code> 和两个整数 <code>m</code> 和 <code>n</code>。<br>请你找出并返回 <strong>strs 的最大子集的大小</strong>，其中 <strong>最多有 <code>m</code> 个 0 和 <code>n</code> 个 1</strong>。<br>如果 <code>x</code> 的所有元素也是 <code>y</code> 的元素，集合 <code>x</code> 是集合 <code>y</code> 的子集。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：strs = [&quot;10&quot;, &quot;0001&quot;, &quot;111001&quot;, &quot;1&quot;, &quot;0&quot;], m = 5, n = 3  </span><br><span class="line">输出：4  </span><br><span class="line">解释：最多有 5 个 0 和 3 个 1 的最大子集是 &#123;&quot;10&quot;,&quot;0001&quot;,&quot;1&quot;,&quot;0&quot;&#125;，它们的大小是 4。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：strs = [&quot;10&quot;, &quot;0&quot;, &quot;1&quot;], m = 1, n = 1  </span><br><span class="line">输出：2  </span><br><span class="line">解释：最多可选 &#123;&quot;0&quot;, &quot;1&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为01背包问题：</strong></p>
+<ul>
+<li>背包容量是：<code>m</code> 个 0 和 <code>n</code> 个 1</li>
+<li>物品是：每个字符串，它的“重量”是包含的 0 和 1 的个数</li>
+<li>“价值”是：选择这个字符串后的子集大小</li>
+</ul>
+<p><strong>动态规划步骤：</strong><br>1.确定dp数组（dp table）以及下标的含义<br><code>Dp[i][j]</code>表示最多由<code>i</code>个0和<code>j</code>个1时最大子集的长度。<br>2.确定递推公式<br><code>Dp[i][j]=max(dp[i][j],Dp[i-m0][j-m1]+1);</code><br>3.dp数组如何初始化<br><code>vector&lt;int&gt; dp(m+1,vector&lt;int&gt;(n+1,0));</code><br>4.确定遍历顺序</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;strs.<span class="built_in">size</span>();k++)</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i=m;i&gt;=m0;i++;)</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j=n;j&gt;=m1;j++)</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMaxForm</span><span class="params">(vector&lt;string&gt;&amp; strs, <span class="type">int</span> m, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">strs01</span>(strs.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(<span class="number">2</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; strs[i].<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (strs[i][j] == <span class="string">&#x27;0&#x27;</span>)strs01[i][<span class="number">0</span>]++;</span><br><span class="line">                <span class="keyword">if</span> (strs[i][j] == <span class="string">&#x27;1&#x27;</span>)strs01[i][<span class="number">1</span>]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(m + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; strs.<span class="built_in">size</span>(); k++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = m; i &gt;= strs01[k][<span class="number">0</span>]; i--) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = n; j &gt;= strs01[k][<span class="number">1</span>]; j--) &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">max</span>(dp[i][j], dp[i - strs01[k][<span class="number">0</span>]][j - strs01[k][<span class="number">1</span>]] + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[m][n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h3><h4 id="1-确定-dp-数组含义"><a href="#1-确定-dp-数组含义" class="headerlink" title="1. 确定 dp 数组含义"></a>1. 确定 <code>dp</code> 数组含义</h4><ul>
+<li>定义一个一维或二维 <code>dp</code> 数组。</li>
+<li>下标 <code>dp[i]</code> 表示容量为 <code>i</code> 时，背包能达到的最大值、最小值、组合数或可行性等状态。<ul>
+<li><strong>Leetcode 416. 分割等和子集</strong>：<code>dp[i]</code> 表示是否能通过某些物品的组合，恰好凑成重量为 <code>i</code> 的背包。</li>
+<li><strong>Leetcode 1049. 最后一块石头的重量 II</strong>：<code>dp[j]</code>表示容量为 <code>j</code> 的背包最多能装多少重量的石头</li>
+<li><strong>Leetcode 494. 目标和</strong>：<code>dp[i]</code> 表示能够通过某些数值组合，达到 <code>i</code> 这个目标和的情况数。</li>
+<li><strong>Leetcode 474. 一和零</strong>：<code>dp[i][j]</code> 表示能够使用 <code>i</code> 个零和 <code>j</code> 个一组成某个目标的子集数量。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-确定递推公式"><a href="#2-确定递推公式" class="headerlink" title="2. 确定递推公式"></a>2. 确定递推公式</h4><ul>
+<li><strong>0-1背包</strong>的核心特征是：<strong>每个物品只能选择一次</strong>。</li>
+<li>递推公式常见形式：  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);  <span class="comment">// 求最大值</span></span><br><span class="line">dp[j] = <span class="built_in">min</span>(dp[j], dp[j - weight[i]] + value[i]);  <span class="comment">// 求最小值</span></span><br><span class="line">dp[j] = dp[j] + dp[j - weight[i]];  <span class="comment">// 求组合数/方案数</span></span><br><span class="line">dp[j] = <span class="literal">true</span> <span class="keyword">if</span> dp[j - weight[i]];  <span class="comment">// 判断可行性</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-初始化"><a href="#3-初始化" class="headerlink" title="3. 初始化"></a>3. 初始化</h4><p>根据问题类型，初始化方式有所不同：</p>
+<table>
+<thead>
+<tr>
+<th>问题类型</th>
+<th>初始化方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>求最小值</td>
+<td><code>dp[0] = 0</code>, 其他为 <code>INT_MAX</code></td>
+</tr>
+<tr>
+<td>求最大值</td>
+<td><code>dp[0] = 0</code>, 其他为 <code>INT_MIN</code></td>
+</tr>
+<tr>
+<td>判断可行性</td>
+<td><code>dp[0] = true</code>, 其他为 <code>false</code></td>
+</tr>
+<tr>
+<td>求方案数</td>
+<td><code>dp[0] = 1</code>, 其他为 <code>0</code></td>
+</tr>
+</tbody></table>
+<h4 id="4-遍历顺序"><a href="#4-遍历顺序" class="headerlink" title="4. 遍历顺序"></a>4. 遍历顺序</h4><ul>
+<li><strong>物品在外层，容量在内层</strong>：从后往前遍历，避免重复计算。  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = capacity; j &gt;= weight[i]; j--) &#123;</span><br><span class="line">        dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="完全背包问题"><a href="#完全背包问题" class="headerlink" title="完全背包问题"></a>完全背包问题</h1><h2 id="理论基础-1"><a href="#理论基础-1" class="headerlink" title="理论基础"></a>理论基础</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>有<code>N</code>件物品和一个最多能背重量为<code>W</code>的背包。第i件物品的重量是<code>weight[i]</code>，得到的价值是<code>value[i]</code> 。<strong>每件物品都有无限个（也就是可以放入背包多次）</strong>，求解将哪些物品装入背包里物品价值总和最大。</p>
+<p><strong>完全背包和01背包问题唯一不同的地方就是，每种物品有无限件</strong>。</p>
+<h3 id="求解思路-1"><a href="#求解思路-1" class="headerlink" title="求解思路"></a>求解思路</h3><h4 id="二维数组-1"><a href="#二维数组-1" class="headerlink" title="二维数组"></a>二维数组</h4><p><strong>1.确定dp数组以及下标的含义</strong><br><code>dp[i][j] </code>表示从下标为<code>[0-i]</code>的物品，每个物品可以取无限次，放进容量为<code>j</code>的背包，价值总和最大是多少。</p>
+<p><strong>2.确定递推公式</strong><br>对于物体<code>i</code>只有两种情况</p>
+<ul>
+<li>不放物品<code>i</code>：背包容量为<code>j</code>，里面不放物品<code>i</code>的最大价值是<code>dp[i - 1][j]</code>。</li>
+<li>放物品<code>i</code>：背包空出物品<code>i</code>的容量后，背包容量为<code>j - weight[i]</code>，<code>dp[i][j - weight[i]] </code>为背包容量为<code>j - weight[i]</code>且不放物品i的最大价值，那么<code>dp[i][j - weight[i]] + value[i] </code>，就是背包放物品i得到的最大价值。<br>递归公式： <code>dp[i][j] = max(dp[i - 1][j], dp[i][j - weight[i]] + value[i]);</code><br>也可以是：<code>dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i]);</code></li>
+</ul>
+<p>&#x3D;&#x3D;注意：01背包中是 <code>dp[i - 1][j - weight[i]] + value[i])</code>&#x3D;&#x3D;</p>
+<p><strong>3.dp数组如何初始化</strong><br>对于<code>i</code>：<br>	不需要考虑<br>对于<code>j</code>：<br>	如果背包容量j为0的话，即<code>dp[i][0]</code>，无论是选取哪些物品，背包价值总和一定为0。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 初始化 dp</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(weight.<span class="built_in">size</span>(), <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(bagweight + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = weight[<span class="number">0</span>]; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">    dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j - weight[<span class="number">0</span>]] + value[<span class="number">0</span>]; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.确定遍历顺序</strong><br> 先遍历物品再遍历背包：<br> <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>先遍历背包再遍历物品：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; weight[i]) dp[i][j] = dp[i - <span class="number">1</span>][j];</span><br><span class="line">        <span class="keyword">else</span> dp[i][j] = <span class="built_in">max</span>(dp[i - <span class="number">1</span>][j], dp[i][j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="一维数组-1"><a href="#一维数组-1" class="headerlink" title="一维数组"></a>一维数组</h4><p><strong>1.确定dp数组以及下标的含义</strong><br><code>dp[j]</code>表示：容量为<code>j</code>的背包，所背的物品价值可以最大为<code>dp[j]</code>。</p>
+<p><strong>2.确定递推公式</strong><br>对于物体<code>i</code>只有两种情况</p>
+<ul>
+<li>不放物品<code>i</code>：背包容量为<code>j</code>，里面不放物品<code>i</code>的最大价值是<code>dp[j]</code>。</li>
+<li>放物品<code>i</code>：背包空出物品<code>i</code>的容量后，背包容量为<code>j - weight[i]</code>，<code>dp[j - weight[i]] </code>为背包容量为<code>j - weight[i]</code>且不放物品i的最大价值，那么<code>dp[j - weight[i]] + value[i] </code>，就是背包放物品i得到的最大价值。<br>递归公式： <code>dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</code></li>
+</ul>
+<p><strong>3.dp数组如何初始化</strong><br>对于<code>j</code>：<br>	如果背包容量j为0的话，即<code>dp[0]</code>，无论是选取哪些物品，背包价值总和一定为0。</p>
+<p>故初始化代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(bagWeight + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.确定遍历顺序</strong><br>先遍历背包再遍历物品：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">        <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span>) dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>先遍历物品再遍历背包：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; weight.<span class="built_in">size</span>(); i++) &#123; <span class="comment">// 遍历物品</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= bagWeight; j++) &#123; <span class="comment">// 遍历背包容量</span></span><br><span class="line">        <span class="keyword">if</span> (j - weight[i] &gt;= <span class="number">0</span>) dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注：<br>对于纯完全背包问题，其for循环的先后循环是可以颠倒的！<br>但如果题目稍稍有点变化，就会体现在遍历顺序上。<br>如果问装满背包有几种方式的话？ 那么两个for循环的先后顺序就有很大区别了，而leetcode上的题目都是这种稍有变化的类型。</p>
+<h2 id="LeetCode题目-1"><a href="#LeetCode题目-1" class="headerlink" title="LeetCode题目"></a>LeetCode题目</h2><h3 id="LeetCode518-零钱兑换II"><a href="#LeetCode518-零钱兑换II" class="headerlink" title="LeetCode518.零钱兑换II"></a>LeetCode518.零钱兑换II</h3><h4 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个整数数组 <code>coins</code> 表示不同面额的硬币，另给一个整数 <code>amount</code> 表示总金额。<br>请你计算并返回可以凑成总金额的硬币组合数。如果任何硬币组合都无法凑出总金额，返回 <code>0</code> 。<br>假设每一种面额的硬币有无限个。 <br>题目数据保证结果符合 32 位带符号整数。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: amount = 5, coins = [1, 2, 5]</span><br><span class="line">输出: 4</span><br><span class="line">解释: 有四种方式可以凑成总金额：</span><br><span class="line">5=5</span><br><span class="line">5=2+2+1</span><br><span class="line">5=2+1+1+1</span><br><span class="line">5=1+1+1+1+1</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入: amount = 3, coins = [2]</span><br><span class="line">输出: 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为完全背包问题：</strong></p>
+<ul>
+<li>每种硬币数量无限，目标是找到组合数，使它们的和恰好等于 <code>amount</code>。</li>
+<li>硬币顺序不同视为同一种组合<br>所以本质上是完全背包问题（物品：硬币，容量：目标金额）。</li>
+<li>这里和完全背包不同的是，这道题求的是方案数，而完全背包问题求得是最大价值。</li>
+<li>&#x3D;&#x3D;对于完全背包问题，物品顺序没有影响，所以遍历顺序也没有影响。&#x3D;&#x3D;</li>
+<li>&#x3D;&#x3D;对于这道题，因为求的是方案数，所以遍历顺序有影响。</li>
+<li>&#x3D;&#x3D;因为硬币顺序不同是同一组合，此时只能先遍历物品再遍历容量。&#x3D;&#x3D;</li>
+</ul>
+<p><strong>动态规划解题步骤：</strong><br>1.确定 <code>dp</code> 数组及含义<br><code>dp[j]</code> 表示：  凑出金额 j 所有组合的方案数。<br>2.确定递推公式<br>对于每一个硬币 <code>coin</code>：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[j] = dp[j] + dp[j - coin]</span><br></pre></td></tr></table></figure>
+<p>含义：</p>
+<ul>
+<li>如果不选 <code>coin</code>，方案数是 <code>dp[j]</code>（原来的）。</li>
+<li>如果选 <code>coin</code>，剩下的金额是 <code>j - coin</code>，方案数是 <code>dp[j - coin]</code>。<br>3.dp数组如何初始化<br>必须初始化：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[<span class="number">0</span>] = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>意思是：金额为 <code>0</code> 时，不选任何硬币也算一种组合。<br>其他：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[i] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>表示还未计算。<br>4.确定遍历顺序</p>
+<ul>
+<li>外层：遍历每一个硬币（保证组合顺序不重复，避免算重）。</li>
+<li>内层：遍历每一个金额 <code>j</code>，从小到大更新（因为完全背包，允许硬币重复选）。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) </span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = coins[i]; j &lt;= amount; j++) </span><br></pre></td></tr></table></figure>
+
+<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">change</span><span class="params">(<span class="type">int</span> amount, vector&lt;<span class="type">int</span>&gt;&amp; coins)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//防溢出</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">unsigned</span> <span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = coins[i]; j &lt;= amount; j++) &#123;</span><br><span class="line">                dp[j] = dp[j] + dp[j - coins[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode377-组合总和IV"><a href="#LeetCode377-组合总和IV" class="headerlink" title="LeetCode377.组合总和IV"></a>LeetCode377.组合总和IV</h3><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>给你一个由 <strong>不同</strong> 整数组成的数组 <code>nums</code> ，和一个目标整数 <code>target</code> 。请你从 <code>nums</code> 中找出并返回总和为 <code>target</code> 的元素组合的个数。</p>
+<p>题目数据保证答案符合 32 位整数范围。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1, 2, 3], target = 4  </span><br><span class="line">输出：7</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line">所有可行的组合有：</span><br><span class="line">(1, 1, 1, 1)  </span><br><span class="line">(1, 1, 2)  </span><br><span class="line">(1, 2, 1)  </span><br><span class="line">(1, 3)  </span><br><span class="line">(2, 1, 1)  </span><br><span class="line">(2, 2)  </span><br><span class="line">(3, 1)</span><br><span class="line">请注意，顺序不同的序列被视作不同的组合。</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [9], target = 3  </span><br><span class="line">输出：0</span><br><span class="line"></span><br><span class="line">解释：  </span><br><span class="line">9 &gt; 3，无法组成 target = 3，结果为0。</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 200</code></li>
+<li><code>1 &lt;= nums[i] &lt;= 1000</code></li>
+<li><code>nums</code> 中的所有元素互不相同。</li>
+<li><code>1 &lt;= target &lt;= 1000</code></li>
+</ul>
+<h4 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为完全背包问题：</strong></p>
+<ul>
+<li>每个数字可以重复使用，目标是找到组合数，使它们的和恰好等于 <code>target</code>。</li>
+<li>数字顺序不同视为不同组合（重要）。<br>所以本质上是<strong>完全背包问题</strong>（物品：数字，容量：<code>target</code>）。</li>
+<li>这里和完全背包不同的是，这道题求的是最少的硬币个数，而完全背包问题求得是最大价值。</li>
+<li>对于完全背包问题，物品顺序没有影响，所以遍历顺序也没有影响。</li>
+<li>&#x3D;&#x3D;对于这道题，因为求的是方案数，所以遍历顺序有影响。</li>
+<li>&#x3D;&#x3D;因为数字顺序不同是不同组合，此时只能先遍历容量再遍历物品。&#x3D;&#x3D;</li>
+</ul>
+<p><strong>动态规划解题步骤：</strong><br>1.确定 <code>dp</code> 数组及含义<br><code>dp[j]</code> 表示：  凑成总和<code>j</code>的排列组合个数。<br>2.确定递推公式<br>对于每个目标总和 <code>j</code>，遍历 <code>nums</code> 中每一个数：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[j] = dp[j] + dp[j - nums[i]]</span><br></pre></td></tr></table></figure>
+<p>含义：</p>
+<ul>
+<li>如果不选 <code>nums[i]</code>，方案数是 <code>dp[j]</code>（原来的）。</li>
+<li>如果选 <code>nums[i]</code>，剩下的是 <code>j - nums[i]</code>，方案数是 <code>dp[j - coin]</code>。<br>3.dp数组如何初始化<br>必须初始化：</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[<span class="number">0</span>] = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>意思是：什么都不选，只有一种组合。<br>其他：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[i] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>表示还未计算。<br>4.确定遍历顺序</p>
+<ul>
+<li><ul>
+<li>外层遍历<strong>容量 <code>j</code></strong>，从 <code>0</code> 到 <code>target</code>；</li>
+</ul>
+</li>
+<li>内层遍历<strong>物品 <code>num</code></strong>，考虑每个可用的数字。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= target; j++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j &gt;= nums[i]) &#123;</span><br><span class="line">            dp[j] += dp[j - nums[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">combinationSum4</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">unsigned</span> <span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(target + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= target; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt;= nums[i])dp[j] = dp[j] + dp[j - nums[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[target];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode322-零钱兑换"><a href="#LeetCode322-零钱兑换" class="headerlink" title="LeetCode322.零钱兑换"></a>LeetCode322.零钱兑换</h3><h4 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h4><p>给你一个整数数组 <code>coins</code> ，表示不同面额的硬币；以及一个整数 <code>amount</code> ，表示总金额。<br>计算并返回可以凑成总金额所需的 <strong>最少的硬币个数</strong> 。如果没有任何一种硬币组合能组成总金额，返回 <code>-1</code> 。<br>你可以认为每种硬币的数量是无限的。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：coins = [1, 2, 5], amount = 11</span><br><span class="line">输出：3</span><br><span class="line">解释：11 = 5 + 5 + 1</span><br></pre></td></tr></table></figure>
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：coins = [2], amount = 3</span><br><span class="line">输出：-1</span><br></pre></td></tr></table></figure>
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：coins = [1], amount = 0</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= coins.length &lt;= 12</code></li>
+<li><code>1 &lt;= coins[i] &lt;= 231 - 1</code></li>
+<li><code>0 &lt;= amount &lt;= 104</code></li>
+</ul>
+<h4 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为完全背包问题：</strong></p>
+<ul>
+<li>每个银币可以重复使用，目标是找到最少的硬币个数，使它们的和恰好等于 <code>amount</code>。</li>
+<li>物品顺序没有影响<br>所以本质上是<strong>完全背包问题</strong>（物品：硬币，容量：目标金额）。</li>
+<li>这里和完全背包不同的是，这道题求的是最少的硬币个数，而完全背包问题求得是最大价值。</li>
+<li>对于完全背包问题，物品顺序没有影响，所以遍历顺序也没有影响。</li>
+<li>&#x3D;&#x3D;对于这道题，因为求的是最少的硬币个数，所以遍历顺序没有影响。&#x3D;&#x3D;</li>
+</ul>
+<p><strong>动态规划解题步骤：</strong><br>1.确定 <code>dp</code> 数组及含义<br><code>dp[j]</code> 表示：  组成金额 <code>j</code> 所需的<strong>最少硬币数</strong>。<br>2.确定递推公式<br>对于每一个硬币 <code>coins[i]</code>，可以选择用或不用：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[j] = <span class="built_in">min</span>(dp[j], dp[j - coins[i]] + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p>3.dp数组如何初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因为是求最小值，先把 dp数组全初始化为一个最大值，表示尚未计算</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, amount + <span class="number">1</span>)</span></span>; </span><br><span class="line"><span class="comment">//凑出金额0，硬币数量为0</span></span><br><span class="line">dp[<span class="number">0</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>4.确定遍历顺序<br>都可以：</p>
+<ul>
+<li>外层遍历每个硬币，内层遍历从小到大遍历金额。</li>
+<li>内层遍历每个硬币，外层遍历从小到大遍历金额。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;   <span class="comment">// 遍历物品（硬币）</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = coins[i]; j &lt;= amount; j++) &#123;  <span class="comment">// 遍历背包容量</span></span><br><span class="line">                dp[j] = <span class="built_in">min</span>(dp[j], dp[j - coins[i]] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">coinChange</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; coins, <span class="type">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(amount + <span class="number">1</span>, amount + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = coins[i]; j &lt;= amount; j++) &#123;</span><br><span class="line">                dp[j] = <span class="built_in">min</span>(dp[j], dp[j - coins[i]] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (dp[amount] == amount + <span class="number">1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> dp[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="LeetCode279-完全平方数"><a href="#LeetCode279-完全平方数" class="headerlink" title="LeetCode279.完全平方数"></a>LeetCode279.完全平方数</h3><h4 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h4><p>给你一个整数 <code>n</code> ，返回 <em>和为 <code>n</code> 的完全平方数的最少数量</em> 。</p>
+<p><strong>完全平方数</strong> 是一个整数，其值等于另一个整数的平方；换句话说，其值等于一个整数自乘的积。例如，<code>1</code>、<code>4</code>、<code>9</code> 和 <code>16</code> 都是完全平方数，而 <code>3</code> 和 <code>11</code> 不是。</p>
+<p>示例1：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 12</span><br><span class="line">输出：3 </span><br><span class="line">解释：12 = 4 + 4 + 4</span><br></pre></td></tr></table></figure>
+
+<p>示例2：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：n = 13</span><br><span class="line">输出：2</span><br><span class="line">解释：13 = 4 + 9</span><br></pre></td></tr></table></figure>
+
+<p>提示：</p>
+<ul>
+<li><code>1 &lt;= n &lt;= 104</code></li>
+</ul>
+<h4 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为完全背包问题：</strong></p>
+<ul>
+<li>每个数字1², 2², 3², 4²,…，可以重复使用，目标是最少数量的完全平方数，组成总和为 <code>n</code>。</li>
+<li>物品顺序没有影响<br>所以本质上是<strong>完全背包问题</strong>（物品：数字，容量：n）。</li>
+<li>这里和完全背包不同的是，这道题求的是最少数量，而完全背包问题求得是最大价值。</li>
+<li>对于完全背包问题，物品顺序没有影响，所以遍历顺序也没有影响。</li>
+<li>&#x3D;&#x3D;对于这道题，因为求的是最少的数量，所以遍历顺序没有影响。&#x3D;&#x3D;</li>
+</ul>
+<p><strong>动态规划解题步骤：</strong><br>1.确定 <code>dp</code> 数组及含义<br><code>dp[j]</code> 表示：  和为 <code>j</code> 时，最少需要多少个完全平方数<br>2.确定递推公式<br>对于每一个完全平方数 <code>i*i</code>，可以选择放或不放：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">dp[j] = <span class="built_in">min</span>(dp[j], dp[j - i*i] + <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>3.dp数组如何初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//因为是求最小值，先把 dp数组全初始化为一个最大值，表示尚未计算</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, n + <span class="number">1</span>)</span></span>; </span><br><span class="line"><span class="comment">//和为0，不需要任何数</span></span><br><span class="line">dp[<span class="number">0</span>] = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>4.确定遍历顺序<br>都可以：</p>
+<ul>
+<li>外层遍历每个数字，内层遍历从小到大遍历容量。</li>
+<li>内层遍历每个容量，外层遍历从小到大遍历数字。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i * i &lt;= n; i++) &#123;        <span class="comment">// 遍历物品，完全平方数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = i * i; j &lt;= n; j++) &#123;    <span class="comment">// 遍历背包容量</span></span><br><span class="line">        dp[j] = <span class="built_in">min</span>(dp[j], dp[j - i * i] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numSquares</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i * i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i * i; j &lt;= n; j++) &#123;</span><br><span class="line">                dp[j] = <span class="built_in">min</span>(dp[j], dp[j - i * i] + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="LeetCode139-单词拆分"><a href="#LeetCode139-单词拆分" class="headerlink" title="LeetCode139.单词拆分"></a>LeetCode139.单词拆分</h3><h4 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h4><p>给你一个字符串 <code>s</code> 和一个字符串列表 <code>wordDict</code> 作为字典。如果可以利用字典中出现的一个或多个单词拼接出 <code>s</code> 则返回 <code>true</code>。</p>
+<p>注意：不要求字典中出现的单词全部都使用，并且字典中的单词可以重复使用。</p>
+<p>示例1：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">输入：s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;, &quot;code&quot;]</span><br><span class="line">输出：true</span><br><span class="line">解释：返回 true 因为 &quot;leetcode&quot; 可以由 &quot;leet&quot; 和 &quot;code&quot; 拼接成。</span><br></pre></td></tr></table></figure>
+<p>示例2：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;applepenapple&quot;, wordDict = [&quot;apple&quot;, &quot;pen&quot;]</span><br><span class="line">输出: true</span><br><span class="line">解释: 返回 true 因为 &quot;applepenapple&quot; 可以由 &quot;apple&quot; &quot;pen&quot; &quot;apple&quot; 拼接成。</span><br><span class="line">     注意，你可以重复使用字典中的单词。</span><br></pre></td></tr></table></figure>
+<p>示例3：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">输入: s = &quot;catsandog&quot;, wordDict = [&quot;cats&quot;, &quot;dog&quot;, &quot;sand&quot;, &quot;and&quot;, &quot;cat&quot;]</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+<p>提示：</p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 300</code></li>
+<li><code>1 &lt;= wordDict.length &lt;= 1000</code></li>
+<li><code>1 &lt;= wordDict[i].length &lt;= 20</code></li>
+<li><code>s</code> 和 <code>wordDict[i]</code> 仅由小写英文字母组成</li>
+<li><code>wordDict</code> 中的所有字符串 <strong>互不相同</strong></li>
+</ul>
+<h4 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h4><p><strong>转化为完全背包问题：</strong></p>
+<ul>
+<li>给定一个字符串 s（背包容量），字典单词 wordDict（物品集合，每个单词可以重复使用），判断是否能拼成 s。</li>
+<li>数值顺序不同视为相同同组合（重要）。<br>所以本质上是<strong>完全背包问题</strong>（物品：单词，容量：<code>s</code>）。</li>
+<li>这里和完全背包不同的是，这道题求的是能否组成，而完全背包问题求得是最大价值。</li>
+<li>对于完全背包问题，物品顺序没有影响，所以遍历顺序也没有影响。</li>
+<li>&#x3D;&#x3D;对于这道题，因为求的是能否组成，所以遍历顺序没有影响。&#x3D;&#x3D;</li>
+</ul>
+<p><strong>动态规划解题步骤：</strong><br>1.确定 <code>dp</code> 数组及含义<br><code>dp[i]</code>：表示 <code>s[0, i-1]</code>（前i个字符）能否由字典中的单词拼接而成。<br><code>dp[i] = true</code>，表示可以拆分。<code>false</code> 表示不行。<br>2.确定递推公式<br>对于每个 <code>word</code>，如果 <code>s</code> 在位置 <code>i - word.size()</code> 到 <code>i</code> 这个子串等于 <code>word</code>，且 <code>dp[i - word.size()] == true</code>，则说明 <code>dp[i] = true</code>。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (dp[i - word.<span class="built_in">size</span>()] &amp;&amp; s.<span class="built_in">substr</span>(i - word.<span class="built_in">size</span>(), word.<span class="built_in">size</span>()) == word) &#123;</span><br><span class="line">    dp[i] = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.dp数组如何初始化</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">dp</span><span class="params">(s.size() + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">dp[<span class="number">0</span>] = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>5.确定遍历顺序<br>都可以：</p>
+<ul>
+<li>外层遍历背包容量（从1到<code>s.size()</code>），内层遍历<code>wordDict</code>（推荐）</li>
+<li>内层遍历背包容量（从1到<code>s.size()</code>），外层遍历<code>wordDict</code></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> string&amp; word : wordDict) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= word.<span class="built_in">size</span>() &amp;&amp; dp[i - word.<span class="built_in">size</span>()] &amp;&amp; s.<span class="built_in">substr</span>(i - word.<span class="built_in">size</span>(), word.<span class="built_in">size</span>()) == word) &#123;</span><br><span class="line">            dp[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">wordBreak</span><span class="params">(string s, vector&lt;string&gt;&amp; wordDict)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">dp</span><span class="params">(s.size() + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; wordDict.<span class="built_in">size</span>(); j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i &gt;= wordDict[j].<span class="built_in">size</span>() &amp;&amp;</span><br><span class="line">                    dp[i - wordDict[j].<span class="built_in">size</span>()]</span><br><span class="line">                    &amp;&amp; s.<span class="built_in">substr</span>(i - wordDict[j].<span class="built_in">size</span>(), wordDict[j].<span class="built_in">size</span>()) == wordDict[j]) &#123;</span><br><span class="line">                    dp[i] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[s.<span class="built_in">size</span>()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="题目总结-1"><a href="#题目总结-1" class="headerlink" title="题目总结"></a>题目总结</h3><h4 id="1-确定-dp-数组含义-1"><a href="#1-确定-dp-数组含义-1" class="headerlink" title="1.确定 dp 数组含义"></a>1.确定 <code>dp</code> 数组含义</h4><ul>
+<li>定义一个一维&#x2F;二维 <code>dp</code> 数组。</li>
+<li>下标 <code>dp[i]</code> 表示 容量为 i 时，背包能达到的最大&#x2F;最小&#x2F;可能性等状态。</li>
+<li>示例：<ul>
+<li><strong>Leetcode 518 零钱兑换 II</strong>：<code>dp[i]</code> 表示总金额为 <code>i</code> 时的组合数（不同的顺序视为相同的情况）。</li>
+<li><strong>Leetcode377 组合总和IV：</strong><code>dp[i]</code> 表示总和<code>i</code>的排列个数（不同的顺序视为不同的情况）。</li>
+<li><strong>Leetcode 322 零钱兑换</strong>：<code>dp[i]</code> 表示金额为 <code>i</code> 时所需最少硬币数。</li>
+<li><strong>Leetcode 279 完全平方数：</strong><code>dp[i]</code>: 和为<code> i</code> 所需的最少平方数个数</li>
+<li><strong>Leetcode 139 单词拆分</strong>：<code>dp[i]</code> 表示前 <code>i</code> 个字符能否被字典中的单词拼出。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-确定递推公式-1"><a href="#2-确定递推公式-1" class="headerlink" title="2.确定递推公式"></a>2.确定递推公式</h4><ul>
+<li><strong>完全背包</strong>的核心特征是：<strong>每个物品可以选多次</strong>。</li>
+<li>所以公式一般形如：  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">dp[j] = <span class="built_in">max</span>(dp[j], dp[j - weight[i]] + value[i]);    <span class="comment">// 求最大值</span></span><br><span class="line">dp[j] = <span class="built_in">min</span>(dp[j], dp[j - weight[i]] + value[i]);    <span class="comment">// 求最小值</span></span><br><span class="line">dp[j] =dp[j] + dp[j - coins[i]];                           <span class="comment">// 求组合数/方案数</span></span><br><span class="line">dp[j] = <span class="literal">true</span> <span class="keyword">if</span> dp[j - word.<span class="built_in">size</span>()] &amp;&amp; s.<span class="built_in">substr</span>(...) <span class="comment">// 判断可行性</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-初始化-1"><a href="#3-初始化-1" class="headerlink" title="3.初始化"></a>3.初始化</h4><p>根据问题不同，初始化有所不同：</p>
+<table>
+<thead>
+<tr>
+<th>问题类型</th>
+<th>初始化方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>求最小值</td>
+<td><code>dp[0] = 0</code>, 其他为 <code>INT_MAX</code></td>
+</tr>
+<tr>
+<td>求最大值</td>
+<td><code>dp[0] = 0</code>, 其他为 <code>INT_MIN</code></td>
+</tr>
+<tr>
+<td>判断是否可行</td>
+<td><code>dp[0] = true</code>,其他为<code>False</code></td>
+</tr>
+<tr>
+<td>求组合方案数</td>
+<td><code>dp[0] = 1</code>,其他为<code>0</code></td>
+</tr>
+</tbody></table>
+<h4 id="4-遍历顺序-1"><a href="#4-遍历顺序-1" class="headerlink" title="4.遍历顺序"></a>4.遍历顺序</h4><ul>
+<li><strong>物品在外层，容量在内层</strong>：适用于求组合数。  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = coins[i]; j &lt;= amount; j++) &#123;</span><br><span class="line">        dp[j] += dp[j - coins[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>容量在外层，物品在内层</strong>：适用于求排列数或状态是否可达。  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= amount; j++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; coins.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j &gt;= coins[i]) dp[j] += dp[j - coins[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ouyiz.github.io">Ouyiz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ouyiz.github.io/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/">https://ouyiz.github.io/2025/04/10/code/leetcode/LeetCode背包专题C++/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ouyiz.github.io" target="_blank">森林</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/04/05/code/leetcode/LeetCode300%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97C++%EF%BC%88%E4%B8%A4%E7%A7%8D%E8%A7%A3%E6%B3%95%EF%BC%89/" title="LeetCode300最长递增子序列C++（两种解法）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">LeetCode300最长递增子序列C++（两种解法）</div></div><div class="info-2"><div class="info-item-1">题目给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。 子序列 是由数组派生而来的序列，删除（或不删除）数组中的某些元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。 示例 1： 输入：nums = [10,9,2,5,3,7,101,18]输出：4解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。 示例 2： 输入：nums = [0,1,0,3,2,3]输出：4  示例 3： 输入：nums = [7,7,7,7,7,7,7]输出：1   提示：  1 &lt;= nums.length &lt;= 2500 -10⁴ &lt;= nums[i] &lt;= 10⁴  进阶： 你能将算法的时间复杂度降低到 O(n log n) 吗？ 解法一：动态规划这道题的目标是找出一个数组中最长的递增子序列的长度，子序列的意思是可以不连续，只要顺序保持不变。 动态规划的方法：  用数组dp，其中 dp[i] 表示以第 i 个数结尾的最长递增子序列的长度。 初始时，每个位置的 dp[i] 都设为...</div></div></div></a><a class="pagination-related" href="/2025/04/10/code/leetcode/LeetCode23%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8C++/" title="LeetCode23合并K个升序链表C++"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">LeetCode23合并K个升序链表C++</div></div><div class="info-2"><div class="info-item-1">题目题目描述：给你一个链表数组，每个链表都已经按升序排列。请你将所有链表合并到一个升序链表中，返回合并后的链表。 示例 1： 输入:lists = [[1,4,5],[1,3,4],[2,6]]输出: [1,1,2,3,4,4,5,6]解释：链表数组如下：[  1-&gt;4-&gt;5,  1-&gt;3-&gt;4,  2-&gt;6]将它们合并到一个有序链表中得到。1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6  示例 2： 输入: []输出: []  示例 3： 输入: [ [] ]输出: []    方法 1：逐对合并（分治法）分治法的思路是将K个链表分成两部分，递归合并。 时间复杂度：  O(N log K)，其中N是所有链表中元素的总数，K是链表的个数。 每次合并的时间复杂度是O(N)，但分治递归的深度是log K。  代码实现： class Solution {public:    // 递归分治合并 K 个链表    ListNode* findRes1(vector&lt;ListNode*&gt;&amp;...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Ouyiz</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">26</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ouyiz"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ouyiz" target="_blank" title=""><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">祝你有更好的生活</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0-1%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">0-1背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80"><span class="toc-text">理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E8%A7%A3%E6%80%9D%E8%B7%AF"><span class="toc-text">求解思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-text">一维数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LeetCode%E9%A2%98%E7%9B%AE"><span class="toc-text">LeetCode题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-416-%E5%88%86%E5%89%B2%E7%AD%89%E5%92%8C%E5%AD%90%E9%9B%86"><span class="toc-text">Leetcode 416. 分割等和子集</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leetcode-1049-%E6%9C%80%E5%90%8E%E4%B8%80%E5%9D%97%E7%9F%B3%E5%A4%B4%E7%9A%84%E9%87%8D%E9%87%8F-II"><span class="toc-text">Leetcode 1049. 最后一块石头的重量 II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode494-%E7%9B%AE%E6%A0%87%E5%92%8C"><span class="toc-text">LeetCode494. 目标和</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode-474-%E4%B8%80%E5%92%8C%E9%9B%B6"><span class="toc-text">LeetCode 474. 一和零</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="toc-text">题目总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A-dp-%E6%95%B0%E7%BB%84%E5%90%AB%E4%B9%89"><span class="toc-text">1. 确定 dp 数组含义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A1%AE%E5%AE%9A%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F"><span class="toc-text">2. 确定递推公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">3. 初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%81%8D%E5%8E%86%E9%A1%BA%E5%BA%8F"><span class="toc-text">4. 遍历顺序</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-text">完全背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80-1"><span class="toc-text">理论基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%82%E8%A7%A3%E6%80%9D%E8%B7%AF-1"><span class="toc-text">求解思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84-1"><span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84-1"><span class="toc-text">一维数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LeetCode%E9%A2%98%E7%9B%AE-1"><span class="toc-text">LeetCode题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode518-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2II"><span class="toc-text">LeetCode518.零钱兑换II</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode377-%E7%BB%84%E5%90%88%E6%80%BB%E5%92%8CIV"><span class="toc-text">LeetCode377.组合总和IV</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-5"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode322-%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2"><span class="toc-text">LeetCode322.零钱兑换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-text">题目描述：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-text">代码：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode279-%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0"><span class="toc-text">LeetCode279.完全平方数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-1"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-6"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeetCode139-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86"><span class="toc-text">LeetCode139.单词拆分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE-2"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-7"><span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93-1"><span class="toc-text">题目总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%A1%AE%E5%AE%9A-dp-%E6%95%B0%E7%BB%84%E5%90%AB%E4%B9%89-1"><span class="toc-text">1.确定 dp 数组含义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%A1%AE%E5%AE%9A%E9%80%92%E6%8E%A8%E5%85%AC%E5%BC%8F-1"><span class="toc-text">2.确定递推公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="toc-text">3.初始化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E9%81%8D%E5%8E%86%E9%A1%BA%E5%BA%8F-1"><span class="toc-text">4.遍历顺序</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/10/code/leetcode/LeetCode23%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8C++/" title="LeetCode23合并K个升序链表C++">LeetCode23合并K个升序链表C++</a><time datetime="2025-04-10T09:25:13.000Z" title="发表于 2025-04-10 17:25:13">2025-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/10/code/leetcode/LeetCode%E8%83%8C%E5%8C%85%E4%B8%93%E9%A2%98C++/" title="无标题">无标题</a><time datetime="2025-04-10T09:24:50.926Z" title="发表于 2025-04-10 17:24:50">2025-04-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/05/code/leetcode/LeetCode300%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97C++%EF%BC%88%E4%B8%A4%E7%A7%8D%E8%A7%A3%E6%B3%95%EF%BC%89/" title="LeetCode300最长递增子序列C++（两种解法）">LeetCode300最长递增子序列C++（两种解法）</a><time datetime="2025-04-05T09:16:46.000Z" title="发表于 2025-04-05 17:16:46">2025-04-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/04/code/VSCode%E4%BD%BF%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="VSCode使用服务器">VSCode使用服务器</a><time datetime="2025-04-04T09:48:27.000Z" title="发表于 2025-04-04 17:48:27">2025-04-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/02/code/Hexo%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E5%8A%A0%E8%BD%BD%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8AObsidian%E7%AE%A1%E7%90%86%E5%8D%9A%E5%AE%A2/" title="Hexo解决图片加载失败问题以及Obsidian管理博客">Hexo解决图片加载失败问题以及Obsidian管理博客</a><time datetime="2025-04-02T05:30:43.000Z" title="发表于 2025-04-02 13:30:43">2025-04-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Ouyiz</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
