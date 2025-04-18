@@ -110,6 +110,34 @@
       avatar: https://gpainter.com/upload/site/20241223-1/213e487fac7827e86236c82977807e36.png
       descr: 看电影，电视剧网站
 
+- class_name: 学习资源
+  class_desc: 与知识相关的网站
+  link_list:
+    - name: 动手学深度学习
+      link: https://zh.d2l.ai/
+      avatar: https://zh.d2l.ai/_images/front.png
+      descr: 动手学深度学习
+    
+    - name: 星露谷学编程
+      link: https://www.codedex.io/
+      avatar: https://www.codedex.io/images/python/nav-paython-image.png
+      descr: 星露谷学编程
+    
+    - name: 外刊资源
+      link: https://github.com/hehonghui/awesome-english-ebooks
+      avatar: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Original_New_Yorker_cover.png/330px-Original_New_Yorker_cover.png
+      descr: 外刊资源
+    
+    - name: JavaGuide
+      link: https://javaguide.cn/home.html
+      avatar: https://javaguide.cn/logo.png
+      descr: JavaGuide
+    
+    - name: 小林coding
+      link: https://xiaolincoding.com/
+      avatar: https://cdn.xiaolincoding.com/icon.webp
+      descr: 小林coding
+
 - class_name: 实用工具
   class_desc: 使生活更便利的工具
   link_list:
@@ -133,7 +161,7 @@
       avatar: https://g.alicdn.com/sail-web/maas/2.6.1/favicon/128.ico
       descr: 免费
 
-    - name: pdf转word
+    - name: 文件格式转换
       link: https://www.alltoall.net/
       avatar: https://files.codelife.cc/icons/www.alltoall.net.svg
       descr: 免费
@@ -152,6 +180,26 @@
       link: https://color.adobe.com/zh/create/color-wheel
       avatar: https://files.codelife.cc/icons/60b9ef47ae5a9ba4024b47b8.png
       descr: 官方配色工具
+
+    - name: Chatgpt指令1
+      link: https://www.explainthis.io/zh-hans/chatgpt
+      avatar: https://www.explainthis.io/img/logo.svg
+      descr: Chatgpt指令
+    
+    - name: Chatgpt指令2
+      link: https://www.aishort.top/
+      avatar: https://img.newzone.top/aishort/logo.svg
+      descr: Chatgpt指令
+    
+    - name: Chatgpt指令3
+      link: https://www.amz123.com/tools-prompt
+      avatar: https://img.amz123.com/upload/index/amz123_top_logo.svg
+      descr: Chatgpt指令
+
+    - name: AI工具导航
+      link: https://aibard123.com/
+      avatar: https://aibard123.com/assets/images/bt8-expand-light.png
+      descr: AI工具导航
 
     
 

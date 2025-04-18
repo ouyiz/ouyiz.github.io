@@ -1,10 +1,15 @@
 ---
-title: 堆及C++实现应用
+title: C++堆及实现，priority_queue
 date: 2025-03-01 15:16:00
-categories: [数据结构]
+categories: [数据结构与算法]
 tags: [堆, 代码,C++]
 mathjax: true
+copyright: false
 ---
+> [!NOTE] 
+> 以下内容为Chatgpt生成后整理
+
+
 堆（Heap）是一种特殊的树形数据结构，通常用来实现优先队列、排序算法等功能。堆是一种完全二叉树，它满足特定的顺序性质。我们可以分为最大堆和最小堆两种。
 ### 1. 堆的定义
 

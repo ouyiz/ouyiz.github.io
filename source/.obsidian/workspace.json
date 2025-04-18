@@ -1,0 +1,222 @@
+{
+  "main": {
+    "id": "0ad2504a18248ab6",
+    "type": "split",
+    "children": [
+      {
+        "id": "e3d8893d649fce19",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b551458799ec2300",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_drafts/前端/CSS/CSS0-学习计划.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CSS0-学习计划"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5abe67c55f68ee7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "a03c69af2d95bef2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8ca36bd7f3db757d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "7dfe632a86b98907",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "4cca4f214c31c1e4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 361.5
+  },
+  "right": {
+    "id": "928ba754c5e1abcc",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1ca685bfb9d171c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7345beacd8c2a0a0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_drafts/机器学习1-Numpy与矩阵.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "机器学习1-Numpy与矩阵 的反向链接列表"
+            }
+          },
+          {
+            "id": "c0266ea33750c7cc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_drafts/机器学习1-Numpy与矩阵.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "机器学习1-Numpy与矩阵 的出链列表"
+            }
+          },
+          {
+            "id": "25966d2b98360909",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "e0e01f47c98857bd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_drafts/机器学习1-Numpy与矩阵.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "机器学习1-Numpy与矩阵 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "b551458799ec2300",
+  "lastOpenFiles": [
+    "_drafts/大图数据管理（简单了解）.md",
+    "_posts/code/leetcode/LeetCode27.移除元素.md",
+    "_posts/code/leetcode/LeetCode23合并K个升序链表C++.md",
+    "_posts/code/leetcode/LeetCode88合并两个有序数组C++.md",
+    "_drafts/LeetCode287寻找重复数.md",
+    "_posts/code/leetcode/LeetCode背包专题C++.md",
+    "_drafts/前端/HTML/HTML4-图片相关的一切.md",
+    "_posts/code/leetcode/LeetCode二分查找专题.md",
+    "_posts/code/leetcode/LeetCode300最长递增子序列C++（两种解法）.md",
+    "_posts/code/leetcode/LeetCode169 多数元素多数元素C++.md",
+    "_posts/code/leetcode/LeetCode136只出现一次的数字C++.md",
+    "_posts/code/leetcode/LeetCode75颜色分类C++.md",
+    "_posts/code/leetcode/LeetCode31下一个排列C++.md",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切.md",
+    "_posts/code/leetcode/LeetCode背包专题C++",
+    "_drafts/前端/CSS/CSS2-和选择器相关的一切.md",
+    "_drafts/前端/CSS/CSS1-基础.md",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切",
+    "_drafts/前端/CSS/CSS4-与文本相关的一切",
+    "_drafts/前端/CSS/CSS3-与背景相关的一切.md",
+    "_drafts/前端/CSS/CSS3-与背景相关的一切",
+    "_drafts/前端/CSS/CSS4-与链接相关的一切.md",
+    "_drafts/前端/CSS/CSS0-学习计划.md",
+    "_drafts/前端/HTML/HTML8-媒体相关的一切.md",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417151732139.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417151326215.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417150654317.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417145850290.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417145525744.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417144624947.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417144250518.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417143700805.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417142748636.png",
+    "_drafts/前端/CSS/CSS5-与文本相关的一切/file-20250417142054911.png",
+    "_drafts/前端/CSS/CSS3-与文本相关的一切",
+    "_drafts/前端/CSS/CSS2-与背景相关的一切",
+    "_drafts/前端/CSS/CSS2-背景",
+    "_drafts/前端/CSS/CSS2-网页内容元素的CSS样式设计",
+    "_drafts/前端/HTML/HTML9-与样式相关的一切.md",
+    "_drafts/机器学习1-Numpy与矩阵.md",
+    "_drafts/前端/CSS",
+    "_drafts/前端",
+    "_drafts/前端/HTML/HTML7-表单相关的一切.md",
+    "_drafts/前端/HTML/HTML6-列表相关的一切.md",
+    "_drafts/前端/HTML/HTML2-文本相关的一切.md",
+    "_drafts/前端/HTML/HTML5-表格相关的一切.md",
+    "未命名.canvas"
+  ]
+}

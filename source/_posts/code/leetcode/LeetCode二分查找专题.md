@@ -1,8 +1,13 @@
 ---
-title: 力扣二分查找专题
+title: LeetCode二分查找专题
 date: 2025-02-26 22:00:54
-categories: [力扣]
-tags: [力扣, 代码,二分查找]
+categories:
+  - 力扣
+tags:
+  - 力扣
+  - 代码
+  - 二分查找
+  - CPP
 ---
 
 # 基础知识
@@ -105,23 +110,30 @@ int binarySearch(vector<int>& nums, int target) {
 - -`104 <= target <= 104`
 
 **思路：**
-当目标值不存在时，目标值应该插入在left的位置。
+以left作为参考标准，也就是return left。
 因为当left，right重叠时，mid也在此处：
-	如果target大于`nums[mid]`，则left不变，刚好为插入位置，因为`nums[left+1]`比target大。
-	如果target小于`nums[mid]`，则left=mid-1，刚好为插入位置，因为`nums[left+1]`,也就是`nums[mid]`比target大。
+	如果`nums[mid] < target`，因为此时`nums[mid]`比target小，而`nums[mid+1]`比target大，插入位置为`mid+1`，所有`left=mid+1`。
+	如果`nums[mid] > target`，因为此时`nums[mid]`比target大，而`nums[mid-1]`比target小，插入位置为`mid`，所有`left=mid`，也就是left不变。
+	如果`target==nums[mid]`，则left不变，刚好为所在位置。
+综上：
+```C++
+if (nums[mid] < target) {
+	left = mid + 1;
+}
+else {
+	right = mid - 1;
+}
+```
 
 **代码：**
-```
+```C++
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
         int left = 0, right = nums.size() - 1;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                return mid;
-            }
-            else if (nums[mid] < target) {
+            if (nums[mid] < target) {
                 left = mid + 1;
             }
             else {
@@ -161,7 +173,7 @@ public:
  **查找结束位置**：
     使用类似的二分查找，调整查找条件，找到目标值时，继续向右搜索即``left=mid+1``，直到找到最后一个出现的目标值。
 
-```
+```C++
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
@@ -248,7 +260,7 @@ public:
 	则要想向后寻找，不仅要``target>nums[mid]``，还有``target<nums[0]``
 
 **代码**
-```
+```C++
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -305,7 +317,7 @@ public:
 	当最小值在右侧时，一定是mid在前半有序部分，即``nums[mid]>nums[0]``。注意到可以旋转K次，即没有旋转。那还需``nums[0]>nums[nums.size()-1]``。故为``nums[0] <= nums[mid] && nums[0] > nums[nums.size() - 1]``
 
 **代码**：
-```
+```C++
 class Solution {
 public:
     int findMin(vector<int>& nums) {
@@ -349,7 +361,7 @@ public:
 
 
 **代码：**
-```
+```C++
 class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
