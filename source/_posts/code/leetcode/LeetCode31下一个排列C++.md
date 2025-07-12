@@ -1,5 +1,5 @@
 ---
-title: LeetCode31下一个排列
+title: LeetCode31下一个排列C++
 date: 2025-03-15 22:00:50
 categories:
   - 力扣

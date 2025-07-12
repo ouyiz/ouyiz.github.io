@@ -1,5 +1,5 @@
 ---
-title: LeetCode27.移除元素
+title: LeetCode27.移除元素C++
 categories:
   - 力扣
 tags:

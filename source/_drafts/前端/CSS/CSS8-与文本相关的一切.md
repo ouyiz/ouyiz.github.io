@@ -43,7 +43,6 @@ h2 {
 }
 
 ```
-
 **界面示例：**
 <img src="file-20250417141517046.png" style="width: 300px; height: auto;">
 
@@ -55,7 +54,6 @@ selector {
     font-size: 字体大小;
 }
 ```
-
 单位示例：
 
 |单位|描述|示例|备注|
@@ -98,7 +96,6 @@ selector {
 	- `bold`：表示加粗字体，等同于 `700`。
 	- `bolder`：表示比父元素字体更粗的字体。
 	- `lighter`：表示比父元素字体更细的字体。
-
 **示例**：
 ```css
 strong {
@@ -108,12 +105,10 @@ p {
      font-weight: 700; /* 加粗 */
 }
 ```
-
 **界面示例：**
 <img src="file-20250417141650112.png" style="width: 300px; height: auto;">
 
 # 4. `font-style` —— 字体样式
-
 **作用**：设置元素文本的样式，如斜体或正常。  
 **语法**：
 ```css
@@ -138,17 +133,14 @@ em {
     font-style: italic;
 }
 ```
-
 **界面示例：**
 <img src="file-20250417142054911.png" style="width: 300px; height: auto;">
 
 
 
 # 5. `text-transform` —— 文本变换
-
 **作用**：控制文本的变换方式，如大写、小写或首字母大写。  
 **语法**：
-
 ```css
 selector {
     text-transform: 变换方式;

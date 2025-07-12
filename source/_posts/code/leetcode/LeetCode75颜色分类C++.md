@@ -1,5 +1,5 @@
 ---
-title: LeetCode75颜色分类
+title: LeetCode75颜色分类C++
 date: 2025-03-15 21:14:39
 categories:
   - 力扣

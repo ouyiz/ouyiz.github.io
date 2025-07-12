@@ -157,7 +157,7 @@ body {
 }
 ```
 
-**scroll与fixed的示例：**
+**scroll与local的示例：**
 <img src="file-20250416164042988.png" style="width: 300px; height: auto;">
 
 <img src="file-20250416164122901.png" style="width: 300px; height: auto;">

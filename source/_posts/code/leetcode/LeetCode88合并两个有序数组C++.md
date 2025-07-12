@@ -1,5 +1,5 @@
 ---
-title: LeetCode88. 合并两个有序数组
+title: LeetCode88. 合并两个有序数组C++
 categories:
   - 力扣
 tags:
