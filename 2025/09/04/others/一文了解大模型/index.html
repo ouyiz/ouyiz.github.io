@@ -1,0 +1,642 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>一文了解大模型 | 森林</title><meta name="author" content="Ouyiz"><meta name="copyright" content="Ouyiz"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一.相关概念1. 人工智能人工智能是最大的一个概念，它是所有这些技术的终极目标和总称。它的目标是让机器像人类一样思考、学习、推理、感知和行动。 2. 机器学习机器学习是实现人工智能的一种核心“方法”。它不再需要程序员为每一个具体任务编写硬编码的规则。相反，机器学习让机器通过分析大量数据来自己学习规律和模式，从而完成任务。它是人工智能的子集，解决了让机器“学习”的问题。 3. 深度学习深度学习是机器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一文了解大模型">
+<meta property="og:url" content="https://ouyiz.github.io/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="森林">
+<meta property="og:description" content="一.相关概念1. 人工智能人工智能是最大的一个概念，它是所有这些技术的终极目标和总称。它的目标是让机器像人类一样思考、学习、推理、感知和行动。 2. 机器学习机器学习是实现人工智能的一种核心“方法”。它不再需要程序员为每一个具体任务编写硬编码的规则。相反，机器学习让机器通过分析大量数据来自己学习规律和模式，从而完成任务。它是人工智能的子集，解决了让机器“学习”的问题。 3. 深度学习深度学习是机器">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ouyiz.github.io/img/avatar.jpg">
+<meta property="article:published_time" content="2025-09-04T14:39:25.000Z">
+<meta property="article:modified_time" content="2025-09-04T14:48:57.189Z">
+<meta property="article:author" content="Ouyiz">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="大模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ouyiz.github.io/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "一文了解大模型",
+  "url": "https://ouyiz.github.io/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/",
+  "image": "https://ouyiz.github.io/img/avatar.jpg",
+  "datePublished": "2025-09-04T14:39:25.000Z",
+  "dateModified": "2025-09-04T14:48:57.189Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Ouyiz",
+      "url": "https://ouyiz.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/ico.png"><link rel="canonical" href="https://ouyiz.github.io/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":3,"unescape":false,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '一文了解大模型',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></div><div class="menus_item"><a class="site-page" href="/podcasts/"><i class="fa-fw fas fa-podcast"></i><span> 播客</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/background.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">森林</span></a><a class="nav-page-title" href="/"><span class="site-name">一文了解大模型</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书籍</span></a></div><div class="menus_item"><a class="site-page" href="/podcasts/"><i class="fa-fw fas fa-podcast"></i><span> 播客</span></a></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">一文了解大模型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-04T14:39:25.000Z" title="发表于 2025-09-04 22:39:25">2025-09-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-04T14:48:57.189Z" title="更新于 2025-09-04 22:48:57">2025-09-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="一-相关概念"><a href="#一-相关概念" class="headerlink" title="一.相关概念"></a>一.相关概念</h2><h3 id="1-人工智能"><a href="#1-人工智能" class="headerlink" title="1. 人工智能"></a>1. 人工智能</h3><p><strong>人工智能</strong>是最大的一个概念，它是所有这些技术的终极目标和总称。它的目标是让机器像人类一样思考、学习、推理、感知和行动。</p>
+<h3 id="2-机器学习"><a href="#2-机器学习" class="headerlink" title="2. 机器学习"></a>2. 机器学习</h3><p><strong>机器学习</strong>是实现人工智能的一种核心“方法”。它不再需要程序员为每一个具体任务编写硬编码的规则。相反，机器学习让机器通过分析大量数据来自己学习规律和模式，从而完成任务。它是人工智能的子集，解决了让机器“学习”的问题。</p>
+<h3 id="3-深度学习"><a href="#3-深度学习" class="headerlink" title="3. 深度学习"></a>3. 深度学习</h3><p><strong>深度学习</strong>是机器学习的一个“分支”。它使用一种特殊的算法——<strong>深度神经网络</strong>。这些网络由许多层的神经元组成，能够自动从原始数据中提取出复杂的特征，这比传统的机器学习算法更强大。</p>
+<h3 id="4-预训练模型"><a href="#4-预训练模型" class="headerlink" title="4. 预训练模型"></a>4. 预训练模型</h3><p><strong>预训练模型</strong>是深度学习的一种“训练范式”或“策略”。传统的深度学习模型需要为每个任务从头开始训练，这耗时耗力且需要大量标注数据。预训练模型改变了这种模式：它先用一个通用的、海量的无标注数据集（如整个互联网的文本和图像）进行训练，让模型学习到通用的知识和表示。这个“预训练”阶段结束后，模型就可以作为一个基础，用于各种不同的下游任务，只需用少量的标注数据进行微调即可。</p>
+<h3 id="5-大规模预训练模型"><a href="#5-大规模预训练模型" class="headerlink" title="5. 大规模预训练模型"></a>5. 大规模预训练模型</h3><p><strong>大规模预训练模型</strong>是预训练模型在“规模”上的一个“特殊阶段”或“进化形态”。当预训练模型的参数量、训练数据量以及计算资源都达到前所未有的规模（例如数百亿、上千亿参数）时，这些模型便不再只是简单的“知识迁移工具”。它们会涌现出新的、意想不到的能力，例如强大的零样本或少样本学习能力、复杂的推理能力和多模态理解能力。<br>我们今天所说的==<strong>大模型</strong>==，通常就是特指这一类模型。<br>==<strong>大模型</strong>==是基于强算法、大算力并通过大规模、多样化数据进行训练以适应广泛下游任务的模型，也可译为==<strong>基础模型</strong>== 。</p>
+<h3 id="6-生成式AI"><a href="#6-生成式AI" class="headerlink" title="6.生成式AI"></a>6.生成式AI</h3><p><strong>生成式AI</strong>是一种可以生成文本、图像、代码、视频、音频等各种新内容的<strong>AI模型</strong>的统称。它与传统AI的区别在于，传统AI主要是分析和识别现有数据（例如，识别图片中的人脸），而生成式AI则是<strong>创造</strong>全新的、以前不存在的内容。</p>
+<h3 id="7-AIGC"><a href="#7-AIGC" class="headerlink" title="7.AIGC"></a>7.AIGC</h3><p><strong>AIGC</strong>是<strong>AI生成的内容</strong>的简称，它更侧重于<strong>结果</strong>和<strong>应用层面</strong>。AIGC泛指由人工智能技术生成的所有内容，包括但不限于文本、图片、音频、视频、代码、游戏等。</p>
+<h3 id="8-Agent"><a href="#8-Agent" class="headerlink" title="8.Agent"></a>8.Agent</h3><p>智能体是一个能够<strong>自主感知环境、做出决策并执行动作</strong>以实现特定目标的系统。它的核心是“行动”。</p>
+<ul>
+<li><strong>例子</strong>：你告诉一个智能体：“帮我总结今天所有未读邮件的主要内容，并用中文写一份报告存到我的Google Drive里。”<ul>
+<li><strong>感知</strong>：智能体会调用Gmail API来读取你的邮件。</li>
+<li><strong>决策与执行</strong>：<ol>
+<li>判断哪些是“未读邮件”。</li>
+<li>调用<strong>生成式AI</strong>（如GPT）来总结每封邮件的核心内容。</li>
+<li>将所有的总结汇总，再次调用<strong>生成式AI</strong>将其整理成一份连贯的中文报告。</li>
+<li>调用Google Drive API，将最终生成的文件保存到指定位置。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>特点</strong>：智能体<strong>主动管理了整个工作流</strong>，它可能调用了多次生成式AI和各种工具API，最终<strong>完成了你设定的目标，而不仅仅是生成了内容</strong>。</li>
+</ul>
+<h2 id="二-大模型概述"><a href="#二-大模型概述" class="headerlink" title="二.大模型概述"></a>二.大模型概述</h2><h3 id="1-大模型的分类"><a href="#1-大模型的分类" class="headerlink" title="1.大模型的分类"></a>1.大模型的分类</h3><p>按模型数据的媒体类型，大模型可以分为语言类大模型、音频处理大模型、计算机视觉  (包含图像和视频)，以及多模态大模型。<br><strong>（1）语言类大模型 (LLM)</strong></p>
+<ul>
+<li><strong>定义：</strong> 参数量级在十亿及以上的大型预训练语言模型。</li>
+<li><strong>功能：</strong> 在大量文本数据上进行训练，能执行广泛的语言任务，如文本总结、翻译、情感分析等。</li>
+<li><strong>示例：</strong> ChatGPT（3.5及以前版本）、文心一言、通义千问等。</li>
+</ul>
+<p><strong>（2）音频处理大模型</strong></p>
+<ul>
+<li><strong>定义：</strong> 利用深度学习技术处理海量音频数据，实现音频的识别、分类、生成等任务。</li>
+<li><strong>功能：</strong> 处理的音频类型不限于语音，还包括音乐、自然声音等。</li>
+<li><strong>示例：</strong> MusicGen、Whisper、音乐云等。</li>
+</ul>
+<p><strong>（3）计算机视觉 (CV) 大模型</strong></p>
+<ul>
+<li><strong>定义：</strong> 专用于计算机视觉任务的大型深度学习模型，通常采用卷积神经网络（CNN）等算法。</li>
+<li><strong>功能：</strong> 在图像和视频领域取得了重要成果，可用于图像分类、目标检测、图像分割等。</li>
+<li><strong>示例：</strong> 百度文心VIMER-UFO 2.0、华为盘古CV大模型、商汤INTERN大模型等。</li>
+</ul>
+<p><strong>（4）多模态大模型</strong></p>
+<ul>
+<li><strong>定义：</strong> 将文本、图像、视频、音频等多种模态信息联合起来进行训练的模型。</li>
+<li><strong>优势：</strong> 相较于单模态模型，多模态大模型更符合人类认知习惯，接口更友好，任务支持更广泛，被认为是通往通用人工智能（AGI）的重要方向。</li>
+<li><strong>示例：</strong> GPT-4、紫东太初等。</li>
+</ul>
+<h3 id="2-大模型的核心训练阶段"><a href="#2-大模型的核心训练阶段" class="headerlink" title="2.大模型的核心训练阶段"></a>2.大模型的核心训练阶段</h3><p><strong>（1）预训练阶段</strong><br>在海量、未标注的原始数据上进行初步训练，目的是让模型学习到通用的世界知识、特征和规律。这一阶段是模型构建知识库的基础。</p>
+<ul>
+<li>预训练阶段是大模型“打基础”的关键环节。在这个阶段，模型被投放到一个巨大的“知识海洋”中——也就是海量的无标注原始数据。这些数据可能来自网页、书籍、百科全书、论坛等，涵盖了各种主题和格式。</li>
+<li>这个过程就像一个孩子通过阅读成千上万本书来学习世界的常识。模型通过分析这些数据，学习语言的语法、句法、语义，以及不同概念之间的关联，从而构建一个庞大的“世界知识图谱”。例如，它能学会“太阳”通常与“光明”、“热”和“白天”等词汇关联，而“月亮”则与“夜晚”、“阴影”和“星空”相关。</li>
+</ul>
+<p><strong>（2）指令微调阶段</strong><br>预训练后，模型在更具体、更小且有标注的数据集上进行进一步训练。这使得模型能更好地理解用户指令，适应特定任务的需求，从而提高其在特定领域的表现。</p>
+<ul>
+<li>预训练让模型拥有了“通识”，但它还不知道如何有效利用这些知识来回答具体问题。指令微调阶段就是教会模型“听懂人话”和“完成任务”。</li>
+<li>在这个阶段，模型会接触到经过精心标注的<strong>指令-响应</strong>数据集。这些数据告诉模型，当用户提出某个特定问题（指令）时，模型应该如何给出恰当的回答（响应）。例如，数据集会包含“请帮我写一封感谢信”和“请为我总结这篇文章”等指令，并配上正确的示范回答。</li>
+<li>通过学习这些<strong>有监督数据</strong>，模型能够将预训练阶段学到的通用知识，与具体的任务需求联系起来。这就像一个通识教育毕业的学生，开始接受专业的职业技能培训。指令微调使得模型不再只是一个庞大的知识库，而是一个能够理解并执行用户命令的智能助手。</li>
+</ul>
+<p><strong>（3）从人类反馈中强化学习 (RLHF)</strong><br>这一阶段是为了让模型更好地与人类的价值观对齐。通过与人类的互动和接收反馈，模型不断优化自身的行为和输出策略，持续改善生成内容的质量和准确性。</p>
+<ul>
+<li>RLHF 是大模型训练流程中的“精修”和“校准”阶段，旨在确保模型的行为与<strong>人类的价值观和偏好</strong>对齐。这个过程就像是请一位老师来纠正学生的行为，让他们不仅知识渊博，而且言行得体。</li>
+<li>具体来说，RLHF 包含三个主要步骤：<ul>
+<li><strong>收集人类偏好数据：</strong> 给模型一个提示（prompt），让它生成几个不同的回答。然后，请人类评估者对这些回答进行排序，评判哪个回答更好、更安全、更符合预期。</li>
+<li><strong>训练奖励模型：</strong> 基于人类的评分数据，训练一个<strong>奖励模型</strong>（Reward Model）。这个模型能够预测人类对任何一个回答的偏好程度，从而模仿人类的“价值观”。<ul>
+<li><strong>强化学习微调：</strong> 最后，利用这个奖励模型作为“虚拟老师”，通过<strong>强化学习算法</strong>来微调大模型。模型的目标是生成能获得最高“奖励分数”的回答。这使得模型在没有人类直接干预的情况下，也能自主地朝着更安全、更有帮助、更符合人类价值观的方向优化其输出。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-大模型发展的四大核心要素"><a href="#3-大模型发展的四大核心要素" class="headerlink" title="3.大模型发展的四大核心要素"></a>3.大模型发展的四大核心要素</h3><p>大模型的成功发展离不开数据、算力、算法和应用这四大要素的协同作用。</p>
+<ul>
+<li><strong>数据：</strong> 这是大模型训练的基础资源。模型建立和内容落地都依赖于大规模、高质量的数据。原始数据必须经过专业的采集和加工，才能成为可供训练的高质量数据集。</li>
+<li><strong>算力：</strong> 算力是支撑大模型训练和运行的基础设施。强大的算力，主要由GPU、FPGA和ASIC等高性能计算芯片提供，是模型迭代训练和推理的必要条件，也是实现“智慧涌现”能力的关键。</li>
+<li><strong>算法：</strong> 算法是大模型学习和表达的必要路径。它决定了模型的学习能力，能够帮助模型从海量数据中挖掘潜在规律和模式，提升模型的鲁棒性。</li>
+<li><strong>应用：</strong> 应用是推动大模型持续发展的核心和关键。成功的应用市场能够提供正向反馈，帮助大模型实现商业上的良性循环，弥补巨大的研发投入，同时用户反馈也为模型的迭代升级提供了宝贵的方向。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/file-20250903180847548.png" alt></li>
+</ul>
+<h2 id="三-Tranformer"><a href="#三-Tranformer" class="headerlink" title="三.Tranformer"></a>三.Tranformer</h2><h3 id="1-Transformer架构"><a href="#1-Transformer架构" class="headerlink" title="1.Transformer架构"></a>1.Transformer架构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/file-20250904181155472.png" alt><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/file-20250904181224292.png" alt></p>
+<p>假设有一个任务：</p>
+<ul>
+<li><strong>任务：</strong> 将中文“猫吃鱼”翻译成英文“The cat eats fish”。</li>
+</ul>
+<h4 id="第零步：预处理-创建-Token-令牌"><a href="#第零步：预处理-创建-Token-令牌" class="headerlink" title="第零步：预处理 - 创建 Token (令牌)"></a>第零步：预处理 - 创建 Token (令牌)</h4><p>计算机只认识数字，所以首先要创建词汇表并把词变成数字。</p>
+<ol>
+<li><strong>Tokenization (分词/令牌化)：</strong> 将句子拆成模型能处理的最小单位。比如：<ul>
+<li>“猫吃鱼” -&gt; 被拆成三个 token： <code>['猫', '吃', '鱼']</code></li>
+<li>“The cat eats fish” -&gt; 被拆成四个 token： <code>['The', 'cat', 'eats', 'fish']</code></li>
+</ul>
+</li>
+<li><strong>映射到 ID：</strong> 每个 token 在模型的“字典”（词汇表）里都有一个唯一的数字 ID。<ul>
+<li><code>‘猫’ -&gt; ID: 101</code></li>
+<li><code>‘吃’ -&gt; ID: 102</code></li>
+<li><code>‘鱼’ -&gt; ID: 103</code></li>
+<li><code>‘The’ -&gt; ID: 201</code></li>
+<li><code>‘cat’ -&gt; ID: 202</code></li>
+<li>…等<br>现在，文字变成了数字：<code>[101, 102, 103]</code>。</li>
+</ul>
+</li>
+</ol>
+<h4 id="第一步：输入编码-位置编码"><a href="#第一步：输入编码-位置编码" class="headerlink" title="第一步：输入编码 + 位置编码"></a>第一步：输入编码 + 位置编码</h4><p>光有 ID 不够，模型还需要知道词的<strong>含义</strong>和它的<strong>位置</strong>。</p>
+<ol>
+<li><strong>词嵌入 (Embedding)：</strong> 一个数学查找表，将每个 ID (如 <code>101</code>) 转换成一个<strong>稠密向量</strong>（一串有意义的数字，比如 <code>[0.2, -0.5, 1.2, ...]</code>）。这个向量表示了“猫”的语义信息。<code>吃</code>和<code>鱼</code>也会被转换成它们自己的向量。<br>Token ID 只是一个无意义的无序编号，无法进行数学计算和表达词语关系；而词嵌入将其转换为一个富含语义的高维数值向量，使得模型能够通过数学计算来理解和学习词语之间的相似性与关联性。<ul>
+<li><code>‘猫’ -&gt; [0.2, -0.5, 1.2, ...]</code></li>
+<li><code>‘吃’ -&gt; [0.8, 0.1, -0.9, ...]</code></li>
+<li><code>‘鱼’ -&gt; [-0.3, 1.5, 0.4, ...]</code></li>
+</ul>
+</li>
+<li><strong>位置编码 (Positional Encoding)：</strong> Transformer 并行处理所有 token，它<strong>天生不知道顺序</strong>。我们必须人工告诉它每个词的位置。<ul>
+<li>我们生成一组代表位置的向量（<code>pos_1</code>, <code>pos_2</code>, <code>pos_3</code>），每个向量都是独一无二的。</li>
+<li><strong>将词向量和位置向量相加</strong>：<ul>
+<li><code>‘猫’的最终向量 = [0.2, -0.5, 1.2, ...] + pos_1</code></li>
+<li><code>‘吃’的最终向量 = [0.8, 0.1, -0.9, ...] + pos_2</code></li>
+<li><code>‘鱼’的最终向量 = [-0.3, 1.5, 0.4, ...] + pos_3</code><br>现在，每个 token 的向量都<strong>既包含了语义信息，也包含了位置信息</strong>。它们被准备好送入编码器。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="第二步：编码器-Encoder-理解句子"><a href="#第二步：编码器-Encoder-理解句子" class="headerlink" title="第二步：编码器 (Encoder) - 理解句子"></a>第二步：编码器 (Encoder) - 理解句子</h4><p>编码器是一个“理解者”，它将输入序列转化为一个富含全局上下文信息的表示，供解码器使用。<br>编码器由多层组成，每层核心是<strong>多头自注意力机制 (Multi-Head Self-Attention)</strong>。<br><strong>1. 自注意力机制 (Self-Attention) - 一个“头”的工作方式：</strong></p>
+<ul>
+<li><strong>目的：</strong> 让每个 token 都能与其他所有 token“交流”，根据上下文动态更新自己的表示。</li>
+<li><strong>过程（对于“吃”这个 token）：</strong><ul>
+<li><strong>制造三把钥匙：</strong> 为每个 token 生成三个新向量：<ul>
+<li><strong>Query (查询向量 Q)：</strong> “吃”提出的问题：“我是动词，我需要找到谁在做我？谁是我的对象？”</li>
+<li><strong>Key (键向量 K)：</strong> 每个 token 的身份牌。“猫”的钥匙是“名词，主语”，“鱼”的钥匙是“名词，宾语”。</li>
+<li><strong>Value (值向量 V)：</strong> 每个 token 真正要提供的信息内容。</li>
+</ul>
+</li>
+<li><strong>打分：</strong> “吃”用自己的 <strong>Q</strong> 去和所有 token（包括自己）的 <strong>K</strong> 做点乘，计算一个相关性分数。<ul>
+<li><code>Score(吃, 猫) =</code> <strong>很高</strong> (动词找主语)</li>
+<li><code>Score(吃, 鱼) =</code> <strong>很高</strong> (动词找宾语)</li>
+<li><code>Score(吃, 吃) =</code> <strong>较低</strong> (自己和自己关系不大)</li>
+</ul>
+</li>
+<li><strong>加权求和：</strong> 将这些分数转换成权重（softmax），然后用权重对所有的 <strong>V</strong> 向量求和。<ul>
+<li><code>新的“吃”的向量 ≈ 0.4 * V猫 + 0.4 * V鱼 + 0.2 * V吃</code></li>
+</ul>
+</li>
+<li><strong>结果：</strong> 新的“吃”的向量不再是孤立的“吃”，而是变成了 <strong>“被猫执行且对象是鱼的吃”</strong>。它融合了全局信息。<br><strong>2. 多头自注意力 (Multi-Head)：</strong></li>
+</ul>
+</li>
+<li><strong>为什么需要多个头？</strong> 一个“头”可能只关注一种关系。多个头可以让模型同时关注<strong>多种不同</strong>的关系。</li>
+<li><strong>比喻：</strong> 就像你读一句话，可以同时分析它的<strong>语法结构</strong>（主谓宾）、<strong>语义关系</strong>（谁对谁做了什么）、<strong>时态</strong>（过去/现在）等。</li>
+<li><strong>实际操作：</strong> 模型会并行地运行多个（例如8个）独立的上述自注意力过程。每个“头”有不同的<strong>Q, K, V</strong>权重矩阵，因此会学习关注不同类型的模式。<ul>
+<li><strong>头1</strong> 可能专门关注<strong>主谓关系</strong>（“吃”关注“猫”）。</li>
+<li><strong>头2</strong> 可能专门关注<strong>动宾关系</strong>（“吃”关注“鱼”）。</li>
+<li><strong>头3</strong> 可能发现“猫”和“鱼”都是<strong>动物</strong>。</li>
+</ul>
+</li>
+<li>所有头的输出最终会被<strong>拼接</strong>起来，再通过一个线性层整合，形成编码器这一层的最终输出。<br>经过编码器多层这样的处理，输入序列<code>[“猫”, “吃”, “鱼”]</code> 被转化为了一个<strong>富含上下文信息的深度表示矩阵</strong>，我们称之为“上下文包”。这个包准备好了被解码器使用。</li>
+</ul>
+<p><strong>3.层归一化 (Layer Normalization)的作用：</strong></p>
+<ul>
+<li><strong>问题：</strong> 神经网络在训练过程中，每层的输入分布会发生变化（内部协变量偏移），这会导致训练不稳定、变慢。</li>
+<li><strong>解决方案：</strong> 层归一化对<strong>单个样本的所有特征</strong>进行标准化（将其均值变为0，方差变为1），然后进行缩放和偏移。</li>
+<li><strong>例子中的体现：</strong><ul>
+<li>在经过自注意力计算后，“吃”的新向量 <code>[0.4 * V猫 + 0.4 * V鱼 + 0.2 * V吃]</code> 可能会变得非常大或非常小。</li>
+<li><strong>层归一化</strong>会立刻对这个新向量进行“平滑”处理，将其稳定在一个合理的数值范围内。这就像是一个“稳压器”，确保数据流在进入下一层时处于稳定状态，极大加速了训练过程并提升了模型性能。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. 前馈神经网络 (Feed-Forward Network, FFN)的作用：</strong></p>
+<ul>
+<li><strong>结构：</strong> 它是一个简单的两层神经网络：<strong>线性层 -&gt; 激活函数 (如ReLU) -&gt; 线性层</strong>。它的输入和输出维度相同。</li>
+<li><strong>目的：</strong> 为自注意力机制添加<strong>非线性变换</strong>和<strong>空间变换</strong>。自注意力机制主要负责“融合信息”，而FFN负责“处理信息”。它将注意力输出的向量映射到另一个空间，从中提取更复杂的特征。</li>
+<li><strong>例子中的体现：</strong><ul>
+<li>对于“吃”这个token，自注意力机制已经把它变成了“被猫执行且对象是鱼的吃”。</li>
+<li>这个向量随后会送入FFN。FFN可能会进一步强化“这是一个动词”、“这是一个现在时动作”等特征，或者抑制一些无关的噪音信息。它为每个位置（token）独立地进行计算。</li>
+</ul>
+</li>
+</ul>
+<h4 id="第三步：解码器-Decoder-生成句子"><a href="#第三步：解码器-Decoder-生成句子" class="headerlink" title="第三步：解码器 (Decoder) - 生成句子"></a>第三步：解码器 (Decoder) - 生成句子</h4><p>解码器也是多层的，它比编码器多一个关键环节。它<strong>自回归地</strong>（用已生成的输出作为输入来预测下一个）工作。<br><strong>初始：</strong> 给解码器输入一个起始 token <code>&lt;start&gt;</code>（ID: 300），让它开始生成。</p>
+<p><strong>第一轮：生成 “The”</strong></p>
+<ol>
+<li><strong>目标序列嵌入：</strong> 当前解码器的输入只有 <code>[&lt;start&gt;]</code>。我们先对它进行词嵌入和位置编码。</li>
+<li><strong>掩码自注意力：</strong> 解码器先做自注意力，但有一个关键限制：<strong>掩码 (Mask)</strong>。为了防止“作弊”，它只能看到当前位置及之前的位置。所以<code>&lt;start&gt;</code>只能看到自己。</li>
+<li><strong>编码器-解码器注意力：</strong> 这是最关键的一步！<ul>
+<li>解码器将上一步的输出作为 <strong>Query (Q)</strong>。</li>
+<li>它去<strong>编码器最终输出的那个“上下文包”</strong>（代表“猫吃鱼”）里，去拿它的 <strong>Key (K)</strong> 和 <strong>Value (V)</strong>。</li>
+<li>这个过程相当于解码器在问：“基于你们理解的整个源句子的意思，在我已经有<code>&lt;start&gt;</code>的情况下，下一个最应该生成什么词？”</li>
+<li>“上下文包”根据其内部信息（主语是“猫”，需要冠词）计算出答案。</li>
+</ul>
+</li>
+<li><strong>输出层：</strong> 经过一个线性层和 softmax，模型计算整个英文词汇表中每个词的概率。<ul>
+<li><code>P(“The”) = 0.85</code></li>
+<li><code>P(“A”) = 0.10</code></li>
+<li><code>P(“cat”) = 0.05</code> …等等</li>
+<li>选择概率最高的“The”作为输出。<strong>现在序列是 <code>[&lt;start&gt;, The]</code></strong></li>
+</ul>
+</li>
+</ol>
+<p><strong>第二轮：生成 “cat”</strong></p>
+<ol>
+<li><strong>输入：</strong> 将 <code>[&lt;start&gt;, The]</code> 输入解码器（并加上位置编码）。</li>
+<li><strong>掩码自注意力：</strong> <code>The</code> 可以关注 <code>&lt;start&gt;</code> 和它自己，但不能关注未来的词。</li>
+<li><strong>编码器-解码器注意力：</strong> 解码器再次用当前状态（<code>[&lt;start&gt;, The]</code>）作为 Q，去问“上下文包”：“现在序列是‘The’，后面跟什么最合适？”<ul>
+<li>“上下文包”回应：“我的主语是‘猫’，所以生成‘cat’。”</li>
+</ul>
+</li>
+<li><strong>输出层：</strong> 计算概率，“cat”的概率最高。输出“cat”。<strong>序列变为 <code>[&lt;start&gt;, The, cat]</code></strong></li>
+</ol>
+<p><strong>后续轮次：</strong> 重复此过程，生成“eats”和“fish”。最后生成一个结束 token <code>&lt;end&gt;</code>，标志着生成完成。</p>
+<h4 id="第四步：输出处理"><a href="#第四步：输出处理" class="headerlink" title="第四步：输出处理"></a>第四步：输出处理</h4><p><strong>线性层 (Linear Layer) 和 Softmax 的作用（在输出层）：</strong></p>
+<ul>
+<li><strong>位置：</strong> 在解码堆栈的最终输出之后。</li>
+<li><strong>流程：</strong><ol>
+<li><strong>线性层 (投影层)：</strong> 解码器最终输出的每个token的向量维度很大（如1024维），包含了丰富的语义信息。线性层的作用是将这个高维向量<strong>投影</strong>到一个新的向量，这个新向量的<strong>长度等于目标词汇表的大小</strong>（如30000维）。<ul>
+<li><strong>例子：</strong> 在生成“The”之后，解码器输出一个代表当前状态的向量（1024维）。线性层将其转换为一个30000维的<strong>logits向量</strong>，这个向量的每个位置上的分数对应着词汇表中每个词的“原始得分”。</li>
+</ul>
+</li>
+<li><strong>Softmax：</strong> 这个30000维的“得分”向量可能数值差异巨大、难以解释。Softmax函数将所有得分转换为<strong>概率分布</strong>：每个值变为0到1之间的正数，且所有值之和为1。<ul>
+<li><strong>例子：</strong> Softmax之后，<code>“The”</code>对应的得分可能变成概率<code>0.85</code>，<code>“A”</code>变成<code>0.10</code>，<code>“cat”</code>变成<code>0.05</code>，其他所有词的概率趋近于0。这得到了一个清晰的、可解释的下一步输出概率。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-Transformer变种"><a href="#2-Transformer变种" class="headerlink" title="2.Transformer变种"></a>2.Transformer变种</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/file-20250904190737329.png" alt></p>
+<h4 id="（1）仅编码器-Encoder-Only-模型"><a href="#（1）仅编码器-Encoder-Only-模型" class="headerlink" title="（1）仅编码器 (Encoder-Only) 模型"></a>（1）仅编码器 (Encoder-Only) 模型</h4><p>这类模型只使用 Transformer 的编码器部分。它们擅长<strong>深度理解语言</strong>，常用于需要“全面分析”的任务。</p>
+<ul>
+<li><strong>代表模型：</strong> <strong>BERT</strong> 及其系列（如 RoBERTa, ALBERT）</li>
+<li><strong>核心思想：</strong> <strong>自编码 (Autoencoding)</strong>。在预训练时，随机掩盖输入中的一些词（例如，把“猫吃鱼”变成“猫<code>[MASK]</code>鱼”），然后让模型根据上下文来预测被掩盖的词。这个过程迫使模型双向地、深度地理解每个词的上下文含义。</li>
+<li><strong>主要用途：</strong><ul>
+<li>文本分类（如情感分析）</li>
+<li>命名实体识别（找出人名、地名）</li>
+<li>问答（从文中提取答案）</li>
+</ul>
+</li>
+<li><strong>特点：</strong> 模型输出是对每个输入词的精炼理解，非常适合做文本的分析和标注，但不擅长直接生成新文本。</li>
+</ul>
+<h4 id="（2）仅解码器-Decoder-Only-模型"><a href="#（2）仅解码器-Decoder-Only-模型" class="headerlink" title="（2）仅解码器 (Decoder-Only) 模型"></a>（2）仅解码器 (Decoder-Only) 模型</h4><p>这类模型只使用 Transformer 的解码器部分（并去掉了编码器-解码器注意力层）。它们是目前<strong>最常见、规模最大的生成式模型</strong>。</p>
+<ul>
+<li><strong>代表模型：</strong> <strong>GPT</strong> 系列（GPT-2, GPT-3, GPT-4）</li>
+<li><strong>核心思想：</strong> <strong>自回归 (Autoregressive)</strong>。模型从左到右逐个生成 token。在生成下一个词时，只能关注到它之前已经生成的词（通过掩码实现）。这模拟了人类自然说话或写作的方式。</li>
+<li><strong>主要用途：</strong><ul>
+<li>文本生成（写文章、写故事）</li>
+<li>对话系统（ChatGPT）</li>
+<li>代码生成</li>
+<li>任何可以通过“提示(Prompt)”来引导的任务</li>
+</ul>
+</li>
+<li><strong>特点：</strong> 拥有强大的<strong>涌现能力</strong>，即在没有专门训练的情况下，也能完成许多新任务。它们是真正的“通用生成器”。</li>
+</ul>
+<h4 id="（3）编码器-解码器-Encoder-Decoder-模型"><a href="#（3）编码器-解码器-Encoder-Decoder-模型" class="headerlink" title="（3）编码器-解码器 (Encoder-Decoder) 模型"></a>（3）编码器-解码器 (Encoder-Decoder) 模型</h4><p>这类模型完整保留了原始 Transformer 的结构，是专门的“条件生成”模型。</p>
+<ul>
+<li><strong>代表模型：</strong> <strong>T5</strong>, <strong>BART</strong></li>
+<li><strong>核心思想：</strong> 专门处理<strong>序列到序列 (Seq2Seq)</strong> 的任务。编码器全面理解输入序列，解码器根据编码器的信息生成输出序列。</li>
+<li><strong>主要用途：</strong><ul>
+<li>机器翻译</li>
+<li>文本摘要（长文-&gt;短文）</li>
+<li>文本复述（改写句子）</li>
+<li>问答（需要生成答案，而非提取）</li>
+</ul>
+</li>
+<li><strong>特点：</strong> 在需要“理解A并生成B”的特定任务上表现非常出色。</li>
+</ul>
+<h2 id="四-大语言模型"><a href="#四-大语言模型" class="headerlink" title="四.大语言模型"></a>四.大语言模型</h2><h3 id="1-自然语言处理（NLP）"><a href="#1-自然语言处理（NLP）" class="headerlink" title="1. 自然语言处理（NLP）"></a>1. 自然语言处理（NLP）</h3><p>自然语言处理（NLP）是一个广阔的学科领域，它的目标是让计算机理解、解释和生成人类的自然语言。<br><strong>传统任务举例：</strong></p>
+<ul>
+<li><strong>理解类:</strong> 情感分析、命名实体识别（找出人名、地名）、语法分析。    </li>
+<li><strong>生成类:</strong> 机器翻译、文本摘要、问答系统。</li>
+</ul>
+<h3 id="2-语言模型"><a href="#2-语言模型" class="headerlink" title="2. 语言模型"></a>2. 语言模型</h3><p>语言模型（Language Model）是 NLP 领域的一个核心概念。简单来说，它的任务是<strong>预测一个词序列出现的概率</strong>。<br><strong>一个简单的例子：</strong></p>
+<ul>
+<li>面对句子开头：“猫吃__”</li>
+<li>一个训练好的语言模型会计算：<ul>
+<li><code>P(鱼 | 猫吃) = 0.92</code> (概率很高)</li>
+<li><code>P(书 | 猫吃) = 0.005</code> (概率极低)</li>
+<li><code>P(飞机 | 猫吃) = 0.0001</code> (概率几乎为零)</li>
+</ul>
+</li>
+<li>模型会根据概率选择“鱼”作为最可能的下一个词。<h3 id="3-大语言模型（LLM）"><a href="#3-大语言模型（LLM）" class="headerlink" title="3. 大语言模型（LLM）"></a>3. 大语言模型（LLM）</h3>大语言模型是语言模型在<strong>规模上实现飞跃</strong>后的产物。它通过以下方式突破了传统语言模型的局限：</li>
+<li><strong>海量数据：</strong> LLM 在互联网上几乎所有的公开文本数据上进行训练，包括书籍、维基百科、新闻和论坛等。这使得它拥有了空前庞大的知识库。</li>
+<li><strong>巨量参数：</strong> 它们的参数量达到了数百亿甚至万亿级别。庞大的参数量让模型能够存储和编码海量的语言模式和世界知识，从而理解更深层次的语义和语境。</li>
+<li><strong>先进架构：</strong> LLM 主要采用 <strong>Transformer</strong> 架构。这种架构的核心是<strong>自注意力机制</strong>，它能让模型在处理一个词时，同时考虑句子中的所有其他词，从而理解长距离的依赖关系。</li>
+</ul>
+<p>大语言模型是基于Transformer架构，在海量文本数据上训练而成的、拥有巨量参数的、具有<strong>涌现能力</strong>的深度学习模型。<br><strong>关键特性：</strong></p>
+<ol>
+<li><strong>涌现能力:</strong><ul>
+<li>这是LLM最神奇的特性。当模型规模（数据、参数、算力）超过某个临界点时，模型会<strong>突然获得</strong>在较小模型上不存在的新能力。</li>
+<li><strong>例如：</strong> 代码生成、复杂推理、跨语言迁移、遵循复杂指令等能力，并非被 explicitly 编程，而是自然“涌现”出来的。</li>
+</ul>
+</li>
+<li><strong>通用任务解决器:</strong><ul>
+<li>传统的NLP模型是“一个模型一个任务”（如情感分析模型只能做情感分析）。</li>
+<li>LLM是“一个模型应对万任务”。通过<strong>提示（Prompting）</strong>，即用自然语言描述任务，LLM就能直接完成。<ul>
+<li><strong>提示举例：</strong> “请将以下英文翻译成中文：<code>Hello, world!</code>”</li>
+<li><strong>提示举例：</strong> “请总结这篇文章的核心观点：<code>[文章内容]</code>”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>核心能力：</strong><ul>
+<li><strong>生成：</strong> 流畅、创造性地生成文本。</li>
+<li><strong>理解：</strong> 深度理解上下文和语义。</li>
+<li><strong>推理：</strong> 进行一定程度的逻辑和常识推理。</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-大语言模型幻觉"><a href="#4-大语言模型幻觉" class="headerlink" title="4.大语言模型幻觉"></a>4.大语言模型幻觉</h3><p>目前所有类别的大模型（语言、音频、视觉、多模态）都存在幻觉问题，这里以大语言模型幻觉为例。</p>
+<p>大语言模型的“幻觉”指的是模型生成的内容与提供的信息源或现实世界事实不符。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>在摘要生成任务中，大模型生成的摘要可能无法对应源文本中的事实正确信息; </li>
+<li>在对话生成任务中， 对话产生的输出与对话历史或外部事实相矛盾; </li>
+<li>在机器翻译任务中, 则是指大模型产生完全脱离原始材料的错误翻译</li>
+</ul>
+<p><strong>大模型幻觉的成因：</strong><br><strong>1.数据层成因</strong><br>训练数据的质量是模型产生幻觉的根源。</p>
+<ol>
+<li>数据收集问题：为追求效率，常使用启发式方法自动收集网络数据，未全部经人工校验。这导致虚假、有害信息被模型吸收。</li>
+<li>数据重复或缺失：<ul>
+<li>重复：导致模型偏向生成记忆中的重复短语，缺乏创造性且可能复制错误。</li>
+<li>缺失：模型对缺失的知识只能进行偏离事实的预测，从而产生幻觉。</li>
+</ul>
+</li>
+<li>数据标注问题：标注过程从纯人工转向机器辅助，引入了刻板印象、编写错误、文化差异和不一致性，这些偏差被模型学习。</li>
+</ol>
+<p><strong>2.模型层成因</strong><br>模型自身的结构设计和训练机制存在固有缺陷。</p>
+<ol>
+<li>编码与解码缺陷：<ul>
+<li>编码器可能无法精确解析输入内容，导致错误的内部表征。</li>
+<li>解码器可能关注了输入中的错误部分，从而混淆事实、生成错误输出。</li>
+</ul>
+</li>
+<li>预训练知识偏好：模型在生成时更倾向于依赖预训练阶段记忆在参数中的静态知识，而非当前提供的输入信息，导致答案过时或与上下文不符。</li>
+<li>知识更新局限：模型存在“灾难性遗忘”问题。用新数据更新模型时，它会遗忘旧知识，导致知识混乱和不完整，从而产生幻觉。</li>
+</ol>
+<p><strong>3.应用层成因</strong><br>在实际部署和应用中产生的新问题。</p>
+<ol>
+<li><strong>下游任务领域专业化</strong>：为特定领域（如医学、法律）优化模型时，可能使其失去通用性，在与训练数据分布不同的实际应用中产生偏差和幻觉。</li>
+<li><strong>模型同质化</strong>：几乎所有主流模型都基于<strong>Transformer架构</strong>。这使得该架构的任何固有缺陷（包括幻觉倾向）都会被所有模型继承和放大。</li>
+<li><strong>多模态化</strong>：处理文本、图像、音频等多种数据类型极大增加了复杂性。不同模态间的差异和对齐困难更容易导致严重的幻觉。</li>
+<li><strong>提示工程问题</strong>：<ul>
+<li><strong>指令微调</strong>：用于训练的数据指令可能本身包含不存在的对象或关系（合成数据），或指令模板过于单一，引导模型生成幻觉内容。</li>
+<li><strong>思维链技术</strong>：模型生成的推理链可能本身逻辑错误，但最终得出了正确答案，难以评估其推理过程的有效性，隐藏了幻觉风险。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-提示词工程"><a href="#5-提示词工程" class="headerlink" title="5.提示词工程"></a>5.提示词工程</h3><h4 id="（1）提示词工程的重要性"><a href="#（1）提示词工程的重要性" class="headerlink" title="（1）提示词工程的重要性"></a>（1）提示词工程的重要性</h4><p>提示词工程是设计和优化输入查询（即“提示词”）的过程，其重要性在于能够引导大型语言模型（LLMs）生成准确、有用且相关的输出 。<br>它为用户提供了一种“编程”形式，可以自定义LLM的输出和交互 。通过利用高质量的提示，信息寻求者和开发人员可以提高LLM的性能，探索新应用，并节省时间和资源 。此外，提示工程还支持开发更复杂的LLM应用程序，并有助于开发者更好地理解模型的能力和行为 。</p>
+<h4 id="（2）提示词基本概念"><a href="#（2）提示词基本概念" class="headerlink" title="（2）提示词基本概念"></a>（2）提示词基本概念</h4><p>提示词由三项基本元素组成：<strong>输入指令</strong>、<strong>上下文</strong>和<strong>输出指示</strong>。这些元素需要根据所选模型和具体任务不断调整和修正，以确保模型能生成高质量的回答。</p>
+<ul>
+<li><strong>输入指令</strong>是用户向大型语言模型（LLM）提出的具体请求或问题。它可以是直接的，例如“明天的天气如何？”；也可以是间接的，例如“我准备去北京旅游，有什么建议吗？”。输入指令的设计对于 LLM 理解用户意图和生成相关回答至关重要。</li>
+<li><strong>上下文</strong>指与输入指令相关的信息，有助于 LLM 更准确地理解指令含义和用户需求。上下文可包括用户与 LLM 的历史对话记录、相关话题的背景信息、时间地点等环境因素，甚至用户的情感状态。在处理输入指令时，充分考虑上下文能够帮助 AI 生成更加准确和个性化的回答。</li>
+<li><strong>输出指示</strong>是 LLM 根据输入指令和上下文信息所生成的响应内容。该响应需满足用户的查询需求，并遵循系统的输出规范与限制。输出指示的表现形式可以是一段文本、一个明确答案、一组可选方案或任何其它形式的反馈，其根本目的在于以最适宜的方式回应用户的指令。</li>
+</ul>
+<h4 id="（4）初级提示词工程技术"><a href="#（4）初级提示词工程技术" class="headerlink" title="（4）初级提示词工程技术"></a>（4）初级提示词工程技术</h4><ul>
+<li><strong>明确性</strong>：是提升 LLM 效果的关键。一个清晰的提示可以减少模型的歧义理解，确保模型准确把握用户的意图。为此，指令应该直接、简洁，并且避免使用含糊或多义的词汇。</li>
+<li><strong>使用关键词</strong>：突出关键词可以帮助模型集中注意力。在提示中使用加粗、斜体或列表等形式强调关键词，可以提高模型识别和响应这些关键信息的能力。</li>
+<li><strong>示例学习</strong>：提供正确或错误的例子可以指导模型理解期望的输出格式。例如，如果用户想要模型生成一段代码，提供一段正确和错误代码的示例可以帮助模型理解用户意图。根据提供示例的多少，该技术又分为 zero-shot learning (ZSL) 和 few-shot learning (FSL)。</li>
+<li><strong>使用正确的语言风格</strong>：根据目标输出调整语言的正式程度和风格。例如，如果需要模型生成学术论文，使用正式和学术的语言风格会更合适。</li>
+<li><strong>反馈循环</strong>：利用用户提供的反馈来不断优化提示词。如果用户对模型的输出不满意，可以根据用户的反馈调整提示，以进一步提高性能。</li>
+<li><strong>角色扮演</strong>：指定一个角色或身份给模型，使其以特定视角回答问题。例如，如果用户想知道医生对某个医疗问题的看法，可以让模型扮演医生的角色。</li>
+</ul>
+<h4 id="（5）高级提示词工程技术"><a href="#（5）高级提示词工程技术" class="headerlink" title="（5）高级提示词工程技术"></a>（5）高级提示词工程技术</h4><p><strong>思维链（ CoT）</strong>：<br>让 AI 像人一样一步步思考，把大问题拆成小问题，逐步解决。这样做不仅更准，还能让我们看懂它是怎么想的。有两种常用方式：</p>
+<ul>
+<li><strong>零样本 CoT</strong>：不用举例，直接加一句“请一步步思考”，AI 就会开始推理。</li>
+<li><strong>少样本 CoT</strong>：给出几个例子，AI 就能学着你的样子进行推理。</li>
+</ul>
+<p><strong>自洽性（Self-Consistency, SC）</strong>：<br>让 AI 对同一个问题生成多条推理路径，就像几个人一起讨论，最后“投票”选出最佳答案。这种方式特别适合复杂或答案不唯一的问题。</p>
+<p><strong>思维树（Tree of Thought, ToT）</strong>：<br>让 AI 在推理时像走迷宫一样尝试多种路径，每走一步都自我评估，选择最有希望的方向。适合需要深度规划或搜索的任务。</p>
+<p><strong>思维图（Graph of Thought, GoT）</strong>：<br>把 AI 的推理过程变成一张“思维网”，不同想法可以连接、合并、甚至循环优化。这让 AI 的思考更灵活、更全面。</p>
+<p><strong>自动思维链（Auto-CoT）</strong>：<br>自动为问题生成推理示例，省去人工编写的麻烦，高效又方便。</p>
+<p><strong>生成知识提示（GKP）</strong>：<br>先让 AI 自己生成一些相关知识，再利用这些知识回答问题。特别适合回答常识类问题，不用查外部资料。</p>
+<p><strong>自动提示工程（APE）</strong>：<br>自动尝试多种提问方式，帮我们找出效果最好的那句“指令”，省时又省力。</p>
+<p><strong>自动多步推理与工具使用（ART）</strong>：<br>让 AI 把复杂任务拆成多个步骤，必要时还能调用其他工具（比如计算器或搜索引擎），弥补自身不足。</p>
+<p><strong>检索增强生成（RAG）</strong>：<br>先从外部知识库中查找相关资料，再结合这些资料生成回答，保证答案既准确又及时。</p>
+<p><strong>推理与行动（ReAct）</strong>：<br>让 AI 一边推理、一边行动（比如上网查资料），根据结果动态调整计划，更灵活地完成复杂任务。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><code>[1]董雅雯,李恒,刘佳,等.大模型技术的发展与应用：现状、机遇与挑战[J].人工智能,2025,(01):110-118.DOI:10.16453/j.2096-5036.202503.</code><br><code>[2]刘泽垣,王鹏江,宋晓斌,等.大语言模型的幻觉问题研究综述[J].软件学报,2025,36(03):1152-1185.DOI:10.13328/j.cnki.jos.007242.</code><br><code>[3]王耀祖,李擎,戴张杰,等.大语言模型研究现状与趋势[J].工程科学学报,2024,46(08):1411-1425.DOI:10.13374/j.issn2095-9389.2023.10.09.003.</code><br><code>[4]王东清,芦飞,张炳会,等.大语言模型中提示词工程综述[J].计算机系统应用,2025,34(01):1-10.DOI:10.15888/j.cnki.csa.009782.</code><br><code>[5]罗锦钊,孙玉龙,钱增志,等.人工智能大模型综述及展望[J].无线电工程,2023,53(11):2461-2472.</code><br><code>[6]蔡睿,葛军,孙哲,等.AI预训练大模型发展综述[J].小型微型计算机系统,2024,45(10):2327-2337.DOI:10.20009/j.cnki.21-1106/TP.2023-0571.</code><br><code>[7]Vaswani A, Shazeer N, Parmar N, et al. Attention is all you need[J]. Advances in neural information processing systems, 2017, 30.</code><br><code>[8]林粒粒呀. ChatGPT原理揭密！背后的黑科技Transformer模型[视频]. (2023-10-26). 取自 https://www.bilibili.com/video/BV1ZG411y7aZ</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ouyiz.github.io">Ouyiz</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ouyiz.github.io/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/">https://ouyiz.github.io/2025/09/04/others/一文了解大模型/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ouyiz.github.io" target="_blank">森林</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><a class="post-meta__tags" href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">大模型</a></div><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/07/15/code/leetcode/LeetCode42%E6%8E%A5%E9%9B%A8%E6%B0%B4/" title="LeetCode42接雨水"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">LeetCode42接雨水</div></div><div class="info-2"><div class="info-item-1">题目：给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。 示例 1： 输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]输出：6解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 示例 2：输入：height = [4,2,0,3,2,5]输出：9 提示：  n == height.length 1 &lt;= n &lt;= 2 * 104 0 &lt;= height[i] &lt;= 105  解法一：暴力逐个计算每一列能存下的水量。 遍历整个数组。针对数组中的每个元素arr[i]，都分别向左、向右遍历一遍数组，找到arr[i]左侧和右侧的最大值，计为leftMax和rightMax，如果leftMax &lt;= arr[i]或者rightMax &lt;= arr[i]，说明当前这一列存不出水。否则当前列能存储的水量为min(leftMax, rightMax) -...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/02/24/podcosts/%E7%BA%B5%E6%A8%AA%E5%9B%9B%E6%B5%B7EP38%E3%80%8A%E6%97%B6%E9%97%B4%E8%B4%AB%E5%9B%B0%E3%80%8B%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E6%97%B6%E9%97%B4%E8%8A%B1%E5%9C%A8%E5%93%AA%E9%87%8C,%E6%98%AF%E7%9C%8B%E5%BE%97%E8%A7%81%E7%9A%84/" title="纵横四海EP38《时间贫困》一个人的时间花在哪里,是看得见的"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-24</div><div class="info-item-2">纵横四海EP38《时间贫困》一个人的时间花在哪里,是看得见的</div></div><div class="info-2"><div class="info-item-1">什么是可支配时间与时间贫困可支配时间可支配时间就是花在想做之事上的时间，就是你想干嘛就干嘛的那种时间。 可支配时间和生活满意度之间的关联可支配时间每天&lt;2小时：会陷入时间贫困。 可支配时间每天&gt;5小时：会失去目标感和成就感 两个增加快乐，让我们过得更幸福的启示 我们要至少我们要在一天中找到让我们不限于时间贫困的这个时间，理想的话至少是2小时以上。 下一步要做的是看看这两小时我们应该怎么使用能够让我们更加快乐，这才是重点。  时间贫困是一种主观感觉时间贫困指的其实并不仅仅是可支配时间小于2小时，他指的也是一种感觉。时间贫困是一种主观的判断，是一种我自己内心深处的这种快乐的感觉。假设如果我每天的那可支配时间是2小时，但是这两小时我没有好好的利用的话，其实我的快乐指数也很低。 两种基本形式的动力    积极聚焦 聚焦于积极结果 时间充裕时倾向 对一切的信心都会提升     预防聚焦 聚焦于回避消极结果 时间紧张时倾向 不愿意去探索     如何感觉拥有更多的时间开源从三个因素上让我们自己感觉到时间更加的充裕  自信心   对自己的信心越足，就越觉得自己是时间充裕的。  ...</div></div></div></a><a class="pagination-related" href="/2025/02/24/podcosts/%E7%8B%AC%E6%A0%91%E4%B8%8D%E6%88%90%E6%9E%9798-%E5%A6%82%E4%BD%95%E6%8A%B5%E6%8A%97%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%8A%E8%B6%8A%E6%9D%A5%E8%B6%8A%E9%87%8D%E7%9A%84%E6%88%BE%E6%B0%94%E5%92%8C%E6%81%B6%E6%84%8F%EF%BC%9F/" title="独树不成林98-如何抵抗互联网上越来越重的戾气和恶意？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-24</div><div class="info-item-2">独树不成林98-如何抵抗互联网上越来越重的戾气和恶意？</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a><a class="pagination-related" href="/2025/02/24/podcosts/%E8%87%AA%E4%B9%A0%E5%AE%A4%20STUDY%20ROMM47%20Q&A%20%E5%8D%B7%E7%8E%8B%E7%9A%84%E5%B9%B4%E7%BB%88%E9%97%AE%E7%AD%94%EF%BC%8C%E4%B9%A6%E5%8D%95%E6%8E%A8%E8%8D%90/" title="自习室 STUDYROMM 47 Q&amp;A 卷王的年终问答，书单推荐"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-24</div><div class="info-item-2">自习室 STUDYROMM 47 Q&amp;A 卷王的年终问答，书单推荐</div></div><div class="info-2"><div class="info-item-1">在面对海量信息时，如何筛选真正适合自己的内容，并找到自己的节奏和主路线？对于如何高效快速地获取大量信息，并有效利用零碎时间，有什么心得或策略吗？ [!NOTE]我们首先要像节食一样给自己制定一个信息饮食计划（information diet...</div></div></div></a><a class="pagination-related" href="/2025/05/30/others/GitHub%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/" title="GitHub实现个人网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-30</div><div class="info-item-2">GitHub实现个人网站</div></div><div class="info-2"><div class="info-item-1">1.创建仓库仓库名字必须是 &lt;你的用户名&gt;.github.ioDescription可以不写选择public 2.本地创建文件夹文件夹内容如下，再让chatgpt随便写的内容用于测试my-website/             ← 项目主文件夹├── index.html          ← 首页（主 HTML 文件）├── about.html          ← 其他页面（可选）├── contact.html        ← 其他页面（可选）├── css/                ← 所有样式文件│   └── style.css       ← 主样式表├── js/                 ← 所有 JavaScript 文件│   └── script.js       ← 主脚本文件├── images/             ← 图片资源│   ├── logo.png│   └── banner.jpg├── fonts/              ← 字体资源（可选）│   └── custom-font.woff├──...</div></div></div></a><a class="pagination-related" href="/2025/02/24/podcosts/%E7%BA%B5%E6%A8%AA%E5%9B%9B%E6%B5%B7EP42%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B%EF%BC%9A%E9%98%85%E8%AF%BB%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%B1%82%E6%AC%A1%EF%BC%8C%E4%BD%A0%E5%9C%A8%E5%93%AA%E4%B8%80%E5%B1%82%EF%BC%9F/" title="纵横四海EP42《如何阅读一本书》：阅读的四个层次，你在哪一层？"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-24</div><div class="info-item-2">纵横四海EP42《如何阅读一本书》：阅读的四个层次，你在哪一层？</div></div><div class="info-2"><div class="info-item-1">阅读的四个目的 资讯  资讯主要是用来了解当前发生了什么事的，它是不太涉及到深入的理解或者是长期的影响的。  知识  知识是在资讯积累的基础上进行分析、筛选、理解，总结出规律经验等等。他最后是变成了规律经验、技能。这个是知识，知识才是用来理解世界和解决问题的。  理解力  知识和理解力之间的区别：  第一个区别就是内化了，变成了我自己的知识。  第二个用于实践，就跟举例子有关。你是不是能够举出很多的例子在把这个知识用于实践。  这个知识满足了这两个条件，我们就从知识跃升到了理解力。  娱乐 ...</div></div></div></a><a class="pagination-related" href="/2025/05/30/others/%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%20GitHub%20%E8%B4%A6%E5%8F%B7%EF%BC%88SSH%EF%BC%89/" title="配置多个 GitHub 账号（SSH）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-30</div><div class="info-item-2">配置多个 GitHub 账号（SSH）</div></div><div class="info-2"><div class="info-item-1">假设一个名字为aaa，一个名字为bbb 1.为每个账号生成不同的 SSH 密钥# 为账号 aaassh-keygen -t ed25519 -C "aaa@example.com" -f ~/.ssh/id_ed25519_aaa# 为账号 bbbssh-keygen -t ed25519 -C "bbb@example.com" -f ~/.ssh/id_ed25519_bbb 2.将公钥添加到对应 GitHub 账户进行下述操作，得到.pub 文件内容cat ~/.ssh/id_ed25519_aaa.pubcat ~/.ssh/id_ed25519_bbb.pub进入各自的 GitHub 账号页面：  打开 GitHub → Settings → SSH and GPG keys → New SSH key 把你生成的 .pub 文件内容粘贴进去  3.配置 SSH 配置文件 ~/.ssh/config打开 SSH 配置文件：notepad ~/.ssh/config 写入以下内容（每个账户一个 Host）：# aaa 账号配置Host github-aaa ...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Ouyiz</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/ouyiz"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/ouyiz" target="_blank" title=""><i class="fab fa-github"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">祝你有更好的生活</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-text">一.相关概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="toc-text">1. 人工智能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-text">2. 机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-text">3. 深度学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">4. 预训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%A7%E8%A7%84%E6%A8%A1%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">5. 大规模预训练模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%94%9F%E6%88%90%E5%BC%8FAI"><span class="toc-text">6.生成式AI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-AIGC"><span class="toc-text">7.AIGC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Agent"><span class="toc-text">8.Agent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%A6%82%E8%BF%B0"><span class="toc-text">二.大模型概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">1.大模型的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A0%B8%E5%BF%83%E8%AE%AD%E7%BB%83%E9%98%B6%E6%AE%B5"><span class="toc-text">2.大模型的核心训练阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8F%91%E5%B1%95%E7%9A%84%E5%9B%9B%E5%A4%A7%E6%A0%B8%E5%BF%83%E8%A6%81%E7%B4%A0"><span class="toc-text">3.大模型发展的四大核心要素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-Tranformer"><span class="toc-text">三.Tranformer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Transformer%E6%9E%B6%E6%9E%84"><span class="toc-text">1.Transformer架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E9%9B%B6%E6%AD%A5%EF%BC%9A%E9%A2%84%E5%A4%84%E7%90%86-%E5%88%9B%E5%BB%BA-Token-%E4%BB%A4%E7%89%8C"><span class="toc-text">第零步：预处理 - 创建 Token (令牌)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E8%BE%93%E5%85%A5%E7%BC%96%E7%A0%81-%E4%BD%8D%E7%BD%AE%E7%BC%96%E7%A0%81"><span class="toc-text">第一步：输入编码 + 位置编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%BC%96%E7%A0%81%E5%99%A8-Encoder-%E7%90%86%E8%A7%A3%E5%8F%A5%E5%AD%90"><span class="toc-text">第二步：编码器 (Encoder) - 理解句子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%A7%A3%E7%A0%81%E5%99%A8-Decoder-%E7%94%9F%E6%88%90%E5%8F%A5%E5%AD%90"><span class="toc-text">第三步：解码器 (Decoder) - 生成句子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E8%BE%93%E5%87%BA%E5%A4%84%E7%90%86"><span class="toc-text">第四步：输出处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Transformer%E5%8F%98%E7%A7%8D"><span class="toc-text">2.Transformer变种</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E4%BB%85%E7%BC%96%E7%A0%81%E5%99%A8-Encoder-Only-%E6%A8%A1%E5%9E%8B"><span class="toc-text">（1）仅编码器 (Encoder-Only) 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E4%BB%85%E8%A7%A3%E7%A0%81%E5%99%A8-Decoder-Only-%E6%A8%A1%E5%9E%8B"><span class="toc-text">（2）仅解码器 (Decoder-Only) 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8-Encoder-Decoder-%E6%A8%A1%E5%9E%8B"><span class="toc-text">（3）编码器-解码器 (Encoder-Decoder) 模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">四.大语言模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%EF%BC%88NLP%EF%BC%89"><span class="toc-text">1. 自然语言处理（NLP）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">2. 语言模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%EF%BC%88LLM%EF%BC%89"><span class="toc-text">3. 大语言模型（LLM）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%B9%BB%E8%A7%89"><span class="toc-text">4.大语言模型幻觉</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B"><span class="toc-text">5.提示词工程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-text">（1）提示词工程的重要性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">（2）提示词基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E5%88%9D%E7%BA%A7%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E6%8A%80%E6%9C%AF"><span class="toc-text">（4）初级提示词工程技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E9%AB%98%E7%BA%A7%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B%E6%8A%80%E6%9C%AF"><span class="toc-text">（5）高级提示词工程技术</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-text">参考文献</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/04/others/%E4%B8%80%E6%96%87%E4%BA%86%E8%A7%A3%E5%A4%A7%E6%A8%A1%E5%9E%8B/" title="一文了解大模型">一文了解大模型</a><time datetime="2025-09-04T14:39:25.000Z" title="发表于 2025-09-04 22:39:25">2025-09-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/15/code/leetcode/LeetCode42%E6%8E%A5%E9%9B%A8%E6%B0%B4/" title="LeetCode42接雨水">LeetCode42接雨水</a><time datetime="2025-07-15T09:19:59.000Z" title="发表于 2025-07-15 17:19:59">2025-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/12/others/%E5%B0%86%E6%9C%AC%E5%9C%B0%E9%A1%B9%E7%9B%AE%E4%B8%8A%E4%BC%A0%E5%88%B0%20GitHub%20%E4%BB%93%E5%BA%93%E7%9A%84%E6%AD%A5%E9%AA%A4/" title="将本地项目上传到 GitHub 仓库的步骤">将本地项目上传到 GitHub 仓库的步骤</a><time datetime="2025-07-12T07:21:36.000Z" title="发表于 2025-07-12 15:21:36">2025-07-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/07/others/IDEA%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%8A%A5%E9%94%99%E2%80%9C%E6%96%87%E4%BB%B6%E5%90%8D%E6%88%96%E6%89%A9%E5%B1%95%E5%90%8D%E5%A4%AA%E9%95%BF%E2%80%9D/" title="IDEA数据库连接报错“文件名或扩展名太长”">IDEA数据库连接报错“文件名或扩展名太长”</a><time datetime="2025-07-07T07:01:18.000Z" title="发表于 2025-07-07 15:01:18">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/03/others/Maven%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E7%BC%93%E6%85%A2/" title="Maven安装依赖缓慢">Maven安装依赖缓慢</a><time datetime="2025-07-03T04:19:25.000Z" title="发表于 2025-07-03 12:19:25">2025-07-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Ouyiz</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.3</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
